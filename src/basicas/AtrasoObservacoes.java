@@ -2,10 +2,15 @@ package basicas;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class AtrasoObservacoes {
 
+	@Id
+	@GeneratedValue
+	private Integer id;
 	
 	//Atributos
 	@Column(nullable=false)
@@ -19,4 +24,14 @@ public class AtrasoObservacoes {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	
 }
