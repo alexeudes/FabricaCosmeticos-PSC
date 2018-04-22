@@ -3,23 +3,49 @@ package basicas;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.persistence.*;
+
+//import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+@Entity
 public class MateriaPrima {
 
 	//Atributos
-	private int id;
+	@Id
+	@GeneratedValue	
+	private Integer idMateriaPrima;
+	@Column(nullable = false)
 	private String nome;
+	@Column(nullable = false)
 	private String descricao;
+	@Column(nullable = false)
 	private String lote;
+	@Temporal(TemporalType.DATE)
 	private Calendar validade;
-	private int estoqueAtual;
+	@Column(nullable = false)
+	private Integer estoqueAtual;
+	
+	//Relacionamentos
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="idFornecedor",insertable=true,updatable=true)
+	@Fetch(FetchMode.JOIN)
+	//@Cascade(CascadeType.ALL)
+	private Fornecedor fornecedor;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name="ProdutoMateriaPrima",
+				joinColumns = @JoinColumn(name="idMateriaPrima"),
+				inverseJoinColumns=@JoinColumn(name ="idProduto"))
 	private List<Produto> produto;
 	
 	//Getters e Setters
-	public int getId() {
-		return id;
+	public Integer getIdMateriaPrima() {
+		return idMateriaPrima;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdMateriaPrima(Integer idMateriaPrima) {
+		this.idMateriaPrima = idMateriaPrima;
 	}
 	public String getNome() {
 		return nome;
@@ -45,11 +71,17 @@ public class MateriaPrima {
 	public void setValidade(Calendar validade) {
 		this.validade = validade;
 	}
-	public int getEstoqueAtual() {
+	public Integer getEstoqueAtual() {
 		return estoqueAtual;
 	}
-	public void setEstoqueAtual(int estoqueAtual) {
+	public void setEstoqueAtual(Integer estoqueAtual) {
 		this.estoqueAtual = estoqueAtual;
+	}
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
 	}
 	public List<Produto> getProduto() {
 		return produto;

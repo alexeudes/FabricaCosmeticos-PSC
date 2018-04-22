@@ -10,6 +10,7 @@ public class Fornecedor {
 
 	@Id
 	@GeneratedValue
+	
 	//Atributos
 	@Column(nullable=false)
 	private Integer id;
@@ -38,7 +39,7 @@ public class Fornecedor {
 	@Column(nullable=false)
 	private String email;
 	
-	@Column(nullable=false,length=9)
+	@Column(nullable=false,length=11)
 	private String telefone;
 	
 	//Getters e Setters
