@@ -12,13 +12,9 @@ import javax.persistence.Id;
 public class AtrasoObservacoes {
 
 	@Id
-<<<<<<< HEAD
-	private Integer id;
-=======
 	@GeneratedValue
 	private Integer id;
 	
->>>>>>> 911b050cec8492d81fa71c2a149aa4166528e763
 	//Atributos
 	@Column(nullable=false)
 	private String observacao;

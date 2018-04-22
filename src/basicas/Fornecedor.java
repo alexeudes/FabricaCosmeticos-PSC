@@ -12,11 +12,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class Fornecedor {
 
+	//Atributos
 	@Id
 	@GeneratedValue
-	
-	//Atributos
-	@Column(nullable=false)
 	private Integer id;
 	
 	@Column(nullable=false,length=14)

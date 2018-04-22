@@ -13,6 +13,7 @@ public class OrdemProducao {
 
 	//Atributos
 	@Id
+	@GeneratedValue
 	private Integer id;
 	
 	@Column(nullable=false)

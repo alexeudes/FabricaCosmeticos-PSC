@@ -10,6 +10,7 @@ public class Compra {
 
 	//Atributos
 	@Id
+	@GeneratedValue
 	private Integer compra;
 	
 	@Transient
