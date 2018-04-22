@@ -4,9 +4,12 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -28,10 +31,13 @@ public class Produto {
 	@JoinColumn(name="idCategoria")
 	private Categoria categoria;
 	
-	@OneToMany(mappedBy="MateriaPrima")
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name="ProdutoMateriaPrima",
+				joinColumns = @JoinColumn(name="idProduto"),
+				inverseJoinColumns=@JoinColumn(name ="idMateriaPrima"))
 	private Collection <MateriaPrima> materiaPrima;
 	
-	@OneToMany(mappedBy="PedidoProduto")
+	@OneToMany(mappedBy="produto")
 	private Collection <PedidoProduto> pedidoProduto;
 		
 	

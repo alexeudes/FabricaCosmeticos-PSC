@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
@@ -11,6 +12,8 @@ import javax.persistence.OneToOne;
 public class OrdemProducao {
 
 	//Atributos
+	@Id
+	private Integer id;
 	
 	@Column(nullable=false)
 	private Calendar dataInicio;
@@ -19,8 +22,7 @@ public class OrdemProducao {
 	private Calendar dataFim;
 	
 	@OneToOne
-	@JoinColumn(name="idPedido")
-	@Column(nullable=false)
+	@JoinColumn(name="idPedido", nullable=false)
 	private Pedido pedido;
 	
 	//private Collection<Operador> listaOperador;
@@ -29,6 +31,12 @@ public class OrdemProducao {
 	private String status;
 	
 	//Getters e Setters
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Calendar getDataInicio() {
 		return dataInicio;
 	}

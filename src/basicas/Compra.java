@@ -2,14 +2,21 @@ package basicas;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Compra {
 
 	//Atributos
+	@Id
+	private Integer compra;
+	
+	@Transient
 	@Column(nullable=false)
 	private Fornecedor fornecedor;
 	
+	@Transient
 	@Column(nullable=false)
 	private MateriaPrima materiaPrima;
 	

@@ -24,7 +24,7 @@ public class Pedido {
 	@ManyToOne (fetch = FetchType.LAZY)
 	@JoinColumn (name = "idCliente", nullable = false)
 	private Cliente cliente;
-	@OneToMany (mappedBy = "Pedido", fetch = FetchType.LAZY)
+	@OneToMany (mappedBy = "pedido", fetch = FetchType.LAZY)
 	private Collection<PedidoProduto> pedidoProduto;
 	@Column (nullable = false)
 	private Calendar prazoEntrega;

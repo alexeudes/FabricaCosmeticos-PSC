@@ -2,6 +2,7 @@ package basicas;
 
 import javax.persistence.*;
 
+@Embeddable
 public class Endereco {
 
 	//atributos

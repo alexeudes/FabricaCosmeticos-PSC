@@ -3,12 +3,11 @@ package basicas;
 import java.util.Collection;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 
 
@@ -29,11 +28,10 @@ public class Cliente {
 	@Column(nullable=false)
 	private String email;
 	
-	@OneToMany(mappedBy="Pedido")
+	@OneToMany(mappedBy="cliente")
 	private Collection <Pedido> pedido;
 	
-	@OneToOne
-	@JoinColumn(name="idEndereco")
+	@Embedded
 	private Endereco endereco;
 			
 	
