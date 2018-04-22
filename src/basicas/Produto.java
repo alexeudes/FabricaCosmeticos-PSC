@@ -1,19 +1,40 @@
 package basicas;
 
+import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Produto {
 
 	//Atributos
+	@Id
+	@GeneratedValue
 	private int id;
+	@Column(nullable=false)
 	private String unidadeFornecimento;
-	private Categoria categoria;
-	private List<MateriaPrima> materiaPrima;
-	//private List<PedidoProduto> pedidoProduto;
-	private List<Produto> produto;
+	@Column(nullable=false)
 	private String status;
+	@Column(nullable=false)
 	private String descricao;
 	
+	@OneToOne
+	@JoinColumn(name="idCategoria")
+	private Categoria categoria;
+	
+	@OneToMany(mappedBy="MateriaPrima")
+	private Collection <MateriaPrima> materiaPrima;
+	
+	@OneToMany(mappedBy="PedidoProduto")
+	private Collection <PedidoProduto> pedidoProduto;
+		
 	//Getters e Setters
 	public int getId() {
 		return id;
@@ -26,19 +47,7 @@ public class Produto {
 	}
 	public void setUnidadeFornecimento(String unidadeFornecimento) {
 		this.unidadeFornecimento = unidadeFornecimento;
-	}
-	public Categoria getCategoria() {
-		return categoria;
-	}
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-	public List<Produto> getProduto() {
-		return produto;
-	}
-	public void setProduto(List<Produto> produto) {
-		this.produto = produto;
-	}
+	}	
 	public String getStatus() {
 		return status;
 	}
@@ -50,13 +59,5 @@ public class Produto {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-	public List<MateriaPrima> getMateriaPrima() {
-		return materiaPrima;
-	}
-	public void setMateriaPrima(List<MateriaPrima> materiaPrima) {
-		this.materiaPrima = materiaPrima;
-	}
-	
-	
+	}		
 }
