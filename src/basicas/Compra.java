@@ -1,12 +1,23 @@
 package basicas;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class Compra {
 
 	//Atributos
+	@Column(nullable=false)
 	private Fornecedor fornecedor;
+	
+	@Column(nullable=false)
 	private MateriaPrima materiaPrima;
-	private double preco;
-	private int quantidade;
+	
+	@Column(nullable=false)
+	private Double preco;
+	
+	@Column(nullable=false)
+	private Integer quantidade;
 	
 	//Getters e Setters
 	public Fornecedor getFornecedor() {
@@ -21,16 +32,16 @@ public class Compra {
 	public void setMateriaPrima(MateriaPrima materiaPrima) {
 		this.materiaPrima = materiaPrima;
 	}
-	public double getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreco(double preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	public int getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
 	}
 	

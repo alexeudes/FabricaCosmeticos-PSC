@@ -10,6 +10,7 @@ public class Fornecedor {
 
 	@Id
 	@GeneratedValue
+	
 	//Atributos
 	@Column(nullable=false)
 	private Integer id;
