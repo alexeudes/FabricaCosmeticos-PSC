@@ -3,7 +3,17 @@ package basicas;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 //import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
@@ -41,6 +51,7 @@ public class MateriaPrima {
 	private List<Produto> produto;
 	
 	//Getters e Setters
+	
 	public Integer getIdMateriaPrima() {
 		return idMateriaPrima;
 	}

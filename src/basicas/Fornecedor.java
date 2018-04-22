@@ -1,9 +1,14 @@
 package basicas;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Fornecedor {
@@ -42,7 +47,12 @@ public class Fornecedor {
 	@Column(nullable=false,length=9)
 	private String telefone;
 	
+	//Relacionamentos
+	@OneToMany(mappedBy="fornecedor",fetch = FetchType.LAZY)
+	private Collection<MateriaPrima> materiaPrima;
+	
 	//Getters e Setters
+	
 	public Integer getId() {
 		return id;
 	}
@@ -102,6 +112,12 @@ public class Fornecedor {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	public Collection<MateriaPrima> getMateriaPrima() {
+		return materiaPrima;
+	}
+	public void setMateriaPrima(Collection<MateriaPrima> materiaPrima) {
+		this.materiaPrima = materiaPrima;
 	}
 	
 }
