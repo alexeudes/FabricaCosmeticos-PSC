@@ -36,6 +36,7 @@ public class Cliente {
 	@JoinColumn(name="idEndereco")
 	private Endereco endereco;
 			
+	
 	//Getters e Setters
 	public Integer getId() {
 		return id;
@@ -73,10 +74,11 @@ public class Cliente {
 	public void setPedido(Collection<Pedido> pedido) {
 		this.pedido = pedido;
 	}
-	public Collection<Endereco> getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(Collection<Endereco> endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	
 }

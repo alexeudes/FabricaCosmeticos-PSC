@@ -1,7 +1,6 @@
 package basicas;
 
 import java.util.Collection;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +34,7 @@ public class Produto {
 	@OneToMany(mappedBy="PedidoProduto")
 	private Collection <PedidoProduto> pedidoProduto;
 		
+	
 	//Getters e Setters
 	public int getId() {
 		return id;
@@ -59,5 +59,23 @@ public class Produto {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}		
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public Collection<MateriaPrima> getMateriaPrima() {
+		return materiaPrima;
+	}
+	public void setMateriaPrima(Collection<MateriaPrima> materiaPrima) {
+		this.materiaPrima = materiaPrima;
+	}
+	public Collection<PedidoProduto> getPedidoProduto() {
+		return pedidoProduto;
+	}
+	public void setPedidoProduto(Collection<PedidoProduto> pedidoProduto) {
+		this.pedidoProduto = pedidoProduto;
+	}
 }
