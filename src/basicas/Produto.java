@@ -13,6 +13,8 @@ public class Produto {
 	private List<Produto> produto;
 	private String status;
 	private String descricao;
+	
+	//Getters e Setters
 	public int getId() {
 		return id;
 	}

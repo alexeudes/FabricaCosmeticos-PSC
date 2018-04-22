@@ -1,27 +1,51 @@
 package basicas;
 
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Fornecedor {
 
+	@Id
+	@GeneratedValue
 	//Atributos
-	private int id;
+	@Column(nullable=false)
+	private Integer id;
+	
+	@Column(nullable=false,length=14)
 	private String cnpj;
+	
+	@Column(nullable=false)
 	private String razaoSocial;
+	
+	@Column(nullable=false)
 	private String logradouro;
+	
+	@Column(nullable=false)
 	private String bairro;
+	
+	@Column(nullable=false)
 	private String cidade;
+	
+	@Column(nullable=false,length=2)
 	private String estado;
+	
+	@Column(nullable=false,length=9)
 	private String cep;
+	
+	@Column(nullable=false)
 	private String email;
+	
+	@Column(nullable=false,length=9)
 	private String telefone;
-	private List<Compra> compra;
 	
 	//Getters e Setters
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getCnpj() {
@@ -77,12 +101,6 @@ public class Fornecedor {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-	public List<Compra> getCompra() {
-		return compra;
-	}
-	public void setCompra(List<Compra> compra) {
-		this.compra = compra;
 	}
 	
 }

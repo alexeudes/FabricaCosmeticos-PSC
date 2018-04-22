@@ -7,15 +7,20 @@ public class Endereco {
 	//atributos
 	@Column(length = 9,nullable = false)
 	private String cep;
+	
 	@Column(nullable= false)
 	private String logradouro;
+	
 	@Column(nullable= false)
 	private String numero;
+	
 	@Column(nullable= false)
 	private String bairro;
+	
 	@Column(nullable= false)
 	private String cidade;
-	@Column(nullable= false)
+	
+	@Column(nullable= false,length=2)
 	private String estado;
 	
 	//Getters e Setters
