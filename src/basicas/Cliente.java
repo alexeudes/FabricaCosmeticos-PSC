@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -21,19 +22,21 @@ public class Cliente {
 	private Integer id;
 	@Column(length=14, nullable=false)
 	private String cnpj;
-	@Column(length=200, nullable=false)
+	@Column(nullable=false)
 	private String razaoSocial;
 	@Column(length=11, nullable=false)
 	private String telefone;
-	@Column(length=40, nullable=false)
+	@Column(nullable=false)
 	private String email;
 	
 	@OneToMany(mappedBy="Pedido")
 	private Collection <Pedido> pedido;
 	
 	@OneToOne
-	private Collection <Endereco> endereco;
+	@JoinColumn(name="idEndereco")
+	private Endereco endereco;
 			
+	
 	//Getters e Setters
 	public Integer getId() {
 		return id;
@@ -71,10 +74,11 @@ public class Cliente {
 	public void setPedido(Collection<Pedido> pedido) {
 		this.pedido = pedido;
 	}
-	public Collection<Endereco> getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(Collection<Endereco> endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	
 }
