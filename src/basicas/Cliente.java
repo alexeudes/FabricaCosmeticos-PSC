@@ -1,24 +1,27 @@
 package basicas;
 
+import java.util.Collection;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+
+@Entity
 public class Cliente {
 
 	//Atributos
+	@Id
+	@GeneratedValue	
 	private int id;
 	private String cnpj;
 	private String razaoSocial;
 	private String telefone;
-	private String logradouro;
-	private String numeroEndereco;
-	private String complemento;
-	private String bairro;
-	private String cidade;
-	private String estado;
-	private String cep;
-	//private List<Pedido> pedidos;
 	private String email;
-	private String login;
-	private String senha;
-	
+	@OneToMany(mappedBy="Pedido")
+	private Collection <Pedido> pedido;	
+			
 	//Getters e Setters
 	public int getId() {
 		return id;
@@ -44,73 +47,11 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public String getLogradouro() {
-		return logradouro;
-	}
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
-	public String getNumeroEndereco() {
-		return numeroEndereco;
-	}
-	public void setNumeroEndereco(String numeroEndereco) {
-		this.numeroEndereco = numeroEndereco;
-	}
-	public String getComplemento() {
-		return complemento;
-	}
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-	public String getBairro() {
-		return bairro;
-	}
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-	public String getCidade() {
-		return cidade;
-	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-	public String getEstado() {
-		return estado;
-	}
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	public String getCep() {
-		return cep;
-	}
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
 	
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	/*public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}*/
-	
-	
+	}	
 }
