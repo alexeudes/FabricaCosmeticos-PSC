@@ -1,14 +1,28 @@
 package basicas;
 
-import java.util.List;
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 public class Categoria {
 
 	//Atributos
 	
+	@Id
+	@GeneratedValue
 	private int id;
+	
+	@Column(nullable=false)
 	private String descricao;
-	private List<Produto> produtos;
+	
+	@OneToMany(mappedBy="categoria")
+	@Column(nullable=false)
+	private Collection<Produto> produtos;
+	
+	@Column(nullable=false)
 	private String tipo;
 	
 	//Getters e Setters
@@ -24,10 +38,10 @@ public class Categoria {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public List<Produto> getProdutos() {
+	public Collection<Produto> getProdutos() {
 		return produtos;
 	}
-	public void setProdutos(List<Produto> produtos) {
+	public void setProdutos(Collection<Produto> produtos) {
 		this.produtos = produtos;
 	}
 	public String getTipo() {

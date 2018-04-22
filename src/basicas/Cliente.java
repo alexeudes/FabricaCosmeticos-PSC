@@ -1,29 +1,44 @@
 package basicas;
 
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+
+
+
+@Entity
 public class Cliente {
 
 	//Atributos
-	private int id;
+	@Id
+	@GeneratedValue	
+	private Integer id;
+	@Column(length=14, nullable=false)
 	private String cnpj;
+	@Column(length=200, nullable=false)
 	private String razaoSocial;
+	@Column(length=11, nullable=false)
 	private String telefone;
-	private String logradouro;
-	private String numeroEndereco;
-	private String complemento;
-	private String bairro;
-	private String cidade;
-	private String estado;
-	private String cep;
-	//private List<Pedido> pedidos;
+	@Column(length=40, nullable=false)
 	private String email;
-	private String login;
-	private String senha;
 	
+	@OneToMany(mappedBy="Pedido")
+	private Collection <Pedido> pedido;
+	
+	@OneToOne
+	private Collection <Endereco> endereco;
+			
 	//Getters e Setters
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getCnpj() {
@@ -43,74 +58,23 @@ public class Cliente {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-	public String getLogradouro() {
-		return logradouro;
-	}
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
-	public String getNumeroEndereco() {
-		return numeroEndereco;
-	}
-	public void setNumeroEndereco(String numeroEndereco) {
-		this.numeroEndereco = numeroEndereco;
-	}
-	public String getComplemento() {
-		return complemento;
-	}
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-	public String getBairro() {
-		return bairro;
-	}
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-	public String getCidade() {
-		return cidade;
-	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-	public String getEstado() {
-		return estado;
-	}
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	public String getCep() {
-		return cep;
-	}
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-	
+	}	
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}	
+	public Collection<Pedido> getPedido() {
+		return pedido;
 	}
-	public String getLogin() {
-		return login;
+	public void setPedido(Collection<Pedido> pedido) {
+		this.pedido = pedido;
 	}
-	public void setLogin(String login) {
-		this.login = login;
+	public Collection<Endereco> getEndereco() {
+		return endereco;
 	}
-	public String getSenha() {
-		return senha;
+	public void setEndereco(Collection<Endereco> endereco) {
+		this.endereco = endereco;
 	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-	/*public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}*/
-	
-	
 }
