@@ -22,11 +22,11 @@ public class Cliente {
 	private Integer id;
 	@Column(length=14, nullable=false)
 	private String cnpj;
-	@Column(length=200, nullable=false)
+	@Column(nullable=false)
 	private String razaoSocial;
 	@Column(length=11, nullable=false)
 	private String telefone;
-	@Column(length=40, nullable=false)
+	@Column(nullable=false)
 	private String email;
 	
 	@OneToMany(mappedBy="Pedido")
