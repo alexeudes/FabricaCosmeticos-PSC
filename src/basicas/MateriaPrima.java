@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -38,10 +39,12 @@ public class MateriaPrima {
 	private Integer estoqueAtual;
 	
 	//Relacionamentos
+	@OneToMany(mappedBy="materiaPrima",fetch = FetchType.LAZY)
+	private Coleection<Compra> compra;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idFornecedor",insertable=true,updatable=true)
 	@Fetch(FetchMode.JOIN)
-	//@Cascade(CascadeType.ALL)
 	private Fornecedor fornecedor;
 	
 	@ManyToMany(fetch = FetchType.LAZY)

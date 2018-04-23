@@ -2,8 +2,14 @@ package basicas;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Compra {
@@ -11,14 +17,11 @@ public class Compra {
 	//Atributos
 	@Id
 	@GeneratedValue
-	private Integer compra;
+	private Integer idCompra;
 	
-	@Transient
-	@Column(nullable=false)
-	private Fornecedor fornecedor;
-	
-	@Transient
-	@Column(nullable=false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="idMateriaPrima",insertable=true,updatable=true)
+	@Fetch(FetchMode.JOIN)
 	private MateriaPrima materiaPrima;
 	
 	@Column(nullable=false)
@@ -28,12 +31,6 @@ public class Compra {
 	private Integer quantidade;
 	
 	//Getters e Setters
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
 	public MateriaPrima getMateriaPrima() {
 		return materiaPrima;
 	}
