@@ -2,7 +2,11 @@ package basicas;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+<<<<<<< HEAD
 import javax.persistence.FetchType;
+=======
+import javax.persistence.GeneratedValue;
+>>>>>>> e6a260b9b48233c007df55d7371640ede4756f7b
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
