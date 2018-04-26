@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -18,7 +17,7 @@ public class Compra {
 	//Atributos
 	@Id
 	@GeneratedValue
-	private Integer idCompra;
+	private Integer id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idMateriaPrima",insertable=true,updatable=true)
@@ -32,6 +31,13 @@ public class Compra {
 	private Integer quantidade;
 	
 	//Getters e Setters
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public MateriaPrima getMateriaPrima() {
 		return materiaPrima;
 	}

@@ -27,7 +27,7 @@ public class MateriaPrima {
 	//Atributos
 	@Id
 	@GeneratedValue	
-	private Integer idMateriaPrima;
+	private Integer id;
 	@Column(nullable = false)
 	private String nome;
 	@Column(nullable = false)
@@ -56,11 +56,11 @@ public class MateriaPrima {
 	
 	//Getters e Setters
 	
-	public Integer getIdMateriaPrima() {
-		return idMateriaPrima;
+	public Integer getId() {
+		return id;
 	}
-	public void setIdMateriaPrima(Integer idMateriaPrima) {
-		this.idMateriaPrima = idMateriaPrima;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;

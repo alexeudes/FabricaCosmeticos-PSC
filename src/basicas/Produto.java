@@ -19,7 +19,7 @@ public class Produto {
 	//Atributos
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 	@Column(nullable=false)
 	private String unidadeFornecimento;
 	@Column(nullable=false)
@@ -42,10 +42,10 @@ public class Produto {
 		
 	
 	//Getters e Setters
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getUnidadeFornecimento() {
