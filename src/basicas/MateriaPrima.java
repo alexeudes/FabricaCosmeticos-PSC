@@ -1,6 +1,7 @@
 package basicas;
 
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -40,7 +41,7 @@ public class MateriaPrima {
 	
 	//Relacionamentos
 	@OneToMany(mappedBy="materiaPrima",fetch = FetchType.LAZY)
-	private Coleection<Compra> compra;
+	private Collection<Compra> compra;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idFornecedor",insertable=true,updatable=true)
