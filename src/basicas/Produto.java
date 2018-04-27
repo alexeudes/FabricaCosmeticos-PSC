@@ -10,8 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Produto {
@@ -27,8 +33,11 @@ public class Produto {
 	@Column(nullable=false)
 	private String descricao;
 	
-	@OneToOne
-	@JoinColumn(name="idCategoria")
+	//Relacionamentos
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idCategoria", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
 	private Categoria categoria;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -39,7 +48,12 @@ public class Produto {
 	
 	@OneToMany(mappedBy="produto")
 	private Collection <PedidoProduto> pedidoProduto;
-		
+	
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idGerDesenvolvimento", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private GerenteDesenvolvimento gerenteDesenvolvimento;
 	
 	//Getters e Setters
 	public Integer getId() {
@@ -84,4 +98,11 @@ public class Produto {
 	public void setPedidoProduto(Collection<PedidoProduto> pedidoProduto) {
 		this.pedidoProduto = pedidoProduto;
 	}
+	public GerenteDesenvolvimento getGerenteDesenvolvimento() {
+		return gerenteDesenvolvimento;
+	}
+	public void setGerenteDesenvolvimento(GerenteDesenvolvimento gerenteDesenvolvimento) {
+		this.gerenteDesenvolvimento = gerenteDesenvolvimento;
+	}
+	
 }

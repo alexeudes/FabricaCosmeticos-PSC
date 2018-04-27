@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -18,17 +20,22 @@ public class Compra {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@Column(nullable=false)
+	private Double preco;
+	@Column(nullable=false)
+	private Integer quantidade;
 	
+	//Relacionamentos
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idMateriaPrima",insertable=true,updatable=true)
 	@Fetch(FetchMode.JOIN)
 	private MateriaPrima materiaPrima;
 	
-	@Column(nullable=false)
-	private Double preco;
-	
-	@Column(nullable=false)
-	private Integer quantidade;
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idGerCompra", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private GerenteCompras gerenteCompras;
 	
 	//Getters e Setters
 	
@@ -55,6 +62,12 @@ public class Compra {
 	}
 	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
+	}
+	public GerenteCompras getGerenteCompras() {
+		return gerenteCompras;
+	}
+	public void setGerenteCompras(GerenteCompras gerenteCompras) {
+		this.gerenteCompras = gerenteCompras;
 	}
 	
 }

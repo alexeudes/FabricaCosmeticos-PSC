@@ -14,16 +14,18 @@ public class PedidoProduto {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@Column (nullable = false)
+	private Double preco;
+	@Column (nullable = false)
+	private Integer quantidade;
+	
+	//Relacionamentos
 	@ManyToOne
 	@JoinColumn (name = "idPedido", nullable = false)
 	private Pedido pedido;
 	@ManyToOne
 	@JoinColumn (name = "idProduto", nullable = false)
 	private Produto produto;
-	@Column (nullable = false)
-	private Double preco;
-	@Column (nullable = false)
-	private Integer quantidade;
 	
 	//Getters e Setters
 	

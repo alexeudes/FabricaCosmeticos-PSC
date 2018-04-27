@@ -5,9 +5,13 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 
 
@@ -28,7 +32,9 @@ public class Cliente {
 	@Column(nullable=false)
 	private String email;
 	
-	@OneToMany(mappedBy="cliente")
+	//Relacionamentos
+	@OneToMany(mappedBy="cliente", fetch = FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
 	private Collection <Pedido> pedido;
 	
 	@Embedded

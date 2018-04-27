@@ -11,6 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Pedido {
@@ -20,18 +28,51 @@ public class Pedido {
 	@GeneratedValue
 	private Integer id;
 	@Column (nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Calendar dataPedido;
-	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "idCliente", nullable = false)
-	private Cliente cliente;
-	@OneToMany (mappedBy = "pedido", fetch = FetchType.LAZY)
-	private Collection<PedidoProduto> pedidoProduto;
 	@Column (nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Calendar prazoEntrega;
 	@Column (nullable = true)
 	private String observacao;
 	@Column (nullable = false)
 	private String status;
+	
+	//Relacionamentos
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idCliente", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private Cliente cliente;
+	
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idAtendente", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private Atendente atendente;
+	
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idGerVenda", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private GerenteVenda gerenteVenda;
+	
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idGerProducao", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private GerenteProducao gerenteProducao;
+	
+	@OneToMany (mappedBy = "pedido", fetch = FetchType.LAZY)
+	private Collection<PedidoProduto> pedidoProduto;
+	
+	@OneToOne(mappedBy = "pedido")
+	@Cascade(CascadeType.ALL)
+	private OrdemProducao ordemProducao;
+	
+	@OneToMany(mappedBy="pedido", fetch = FetchType.LAZY)
+	@Cascade(CascadeType.ALL)
+	private Collection <AtrasoObservacoes> atrasoObservacoes;
 	
 	//Getters e Setters
 	
@@ -77,4 +118,29 @@ public class Pedido {
 	public void setPedidoProduto(Collection<PedidoProduto> pedidoProduto) {
 		this.pedidoProduto = pedidoProduto;
 	}
+	public Atendente getAtendente() {
+		return atendente;
+	}
+	public void setAtendente(Atendente atendente) {
+		this.atendente = atendente;
+	}
+	public GerenteVenda getGerenteVenda() {
+		return gerenteVenda;
+	}
+	public void setGerenteVenda(GerenteVenda gerenteVenda) {
+		this.gerenteVenda = gerenteVenda;
+	}
+	public GerenteProducao getGerenteProducao() {
+		return gerenteProducao;
+	}
+	public void setGerenteProducao(GerenteProducao gerenteProducao) {
+		this.gerenteProducao = gerenteProducao;
+	}
+	public OrdemProducao getOrdemProducao() {
+		return ordemProducao;
+	}
+	public void setOrdemProducao(OrdemProducao ordemProducao) {
+		this.ordemProducao = ordemProducao;
+	}
+	
 }

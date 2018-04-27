@@ -16,31 +16,22 @@ public class Fornecedor {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
 	@Column(nullable=false,length=14)
 	private String cnpj;
-	
 	@Column(nullable=false)
 	private String razaoSocial;
-	
 	@Column(nullable=false)
 	private String logradouro;
-	
 	@Column(nullable=false)
-	private String bairro;
-	
+	private String bairro;	
 	@Column(nullable=false)
 	private String cidade;
-	
 	@Column(nullable=false,length=2)
-	private String estado;
-	
+	private String estado;	
 	@Column(nullable=false,length=9)
-	private String cep;
-	
+	private String cep;	
 	@Column(nullable=false)
 	private String email;
-	
 	@Column(nullable=false,length=11)
 	private String telefone;
 	

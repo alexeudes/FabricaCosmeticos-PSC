@@ -4,9 +4,18 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Categoria {
@@ -15,17 +24,23 @@ public class Categoria {
 	
 	@Id
 	@GeneratedValue
-	private Integer id;
-	
+	private Integer id;	
 	@Column(nullable=false)
 	private String descricao;
-	
-	@OneToMany(mappedBy="categoria")
-	@Column(nullable=false)
-	private Collection<Produto> produtos;
-	
 	@Column(nullable=false)
 	private String tipo;
+	
+	//Relacionamentos
+	@OneToMany(mappedBy="categoria")
+	@Cascade(CascadeType.ALL)
+	private Collection<Produto> produto;
+	
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idQuimico", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private Quimico quimico;
+	
 	
 	//Getters e Setters
 	public Integer getId() {
@@ -41,16 +56,28 @@ public class Categoria {
 		this.descricao = descricao;
 	}
 	public Collection<Produto> getProdutos() {
-		return produtos;
+		return produto;
 	}
-	public void setProdutos(Collection<Produto> produtos) {
-		this.produtos = produtos;
+	public void setProdutos(Collection<Produto> produto) {
+		this.produto = produto;
 	}
 	public String getTipo() {
 		return tipo;
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	public Collection<Produto> getProduto() {
+		return produto;
+	}
+	public void setProduto(Collection<Produto> produto) {
+		this.produto = produto;
+	}
+	public Quimico getQuimico() {
+		return quimico;
+	}
+	public void setQuimico(Quimico quimico) {
+		this.quimico = quimico;
 	}
 	
 }

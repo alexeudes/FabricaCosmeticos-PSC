@@ -17,7 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-//import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -46,6 +47,7 @@ public class MateriaPrima {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idFornecedor",insertable=true,updatable=true)
 	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
 	private Fornecedor fornecedor;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
