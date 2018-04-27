@@ -2,7 +2,9 @@ package dao;
 
 import javax.persistence.EntityManagerFactory;
 
-public class EnderecoDAO extends DAOGenerico{
+import basicas.Endereco;
+
+public class EnderecoDAO extends DAOGenerico<Endereco>{
 
 	public EnderecoDAO(EntityManagerFactory emf) {
 		super(emf);

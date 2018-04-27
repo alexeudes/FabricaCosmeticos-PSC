@@ -2,7 +2,9 @@ package dao;
 
 import javax.persistence.EntityManagerFactory;
 
-public class AtrasoObservacoesDAO extends DAOGenerico{
+import basicas.AtrasoObservacoes;
+
+public class AtrasoObservacoesDAO extends DAOGenerico<AtrasoObservacoes>{
 
 	public AtrasoObservacoesDAO(EntityManagerFactory emf) {
 		super(emf);

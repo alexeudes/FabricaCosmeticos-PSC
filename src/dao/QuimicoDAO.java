@@ -2,7 +2,9 @@ package dao;
 
 import javax.persistence.EntityManagerFactory;
 
-public class QuimicoDAO extends DAOGenerico{
+import basicas.Quimico;
+
+public class QuimicoDAO extends DAOGenerico<Quimico>{
 
 	public QuimicoDAO(EntityManagerFactory emf) {
 		super(emf);

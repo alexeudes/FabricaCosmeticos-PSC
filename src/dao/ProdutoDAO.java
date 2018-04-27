@@ -2,7 +2,9 @@ package dao;
 
 import javax.persistence.EntityManagerFactory;
 
-public class ProdutoDAO extends DAOGenerico{
+import basicas.Produto;
+
+public class ProdutoDAO extends DAOGenerico<Produto>{
 
 	public ProdutoDAO(EntityManagerFactory emf) {
 		super(emf);

@@ -2,7 +2,9 @@ package dao;
 
 import javax.persistence.EntityManagerFactory;
 
-public class GerenteVendaDAO extends DAOGenerico{
+import basicas.GerenteVenda;
+
+public class GerenteVendaDAO extends DAOGenerico<GerenteVenda>{
 
 	public GerenteVendaDAO(EntityManagerFactory emf) {
 		super(emf);

@@ -2,7 +2,9 @@ package dao;
 
 import javax.persistence.EntityManagerFactory;
 
-public class OrdemProducaoDAO extends DAOGenerico{
+import basicas.OrdemProducao;
+
+public class OrdemProducaoDAO extends DAOGenerico<OrdemProducao>{
 
 	public OrdemProducaoDAO(EntityManagerFactory emf) {
 		super(emf);

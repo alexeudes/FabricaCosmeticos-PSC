@@ -2,7 +2,9 @@ package dao;
 
 import javax.persistence.EntityManagerFactory;
 
-public class CompraDAO extends DAOGenerico{
+import basicas.Compra;
+
+public class CompraDAO extends DAOGenerico<Compra>{
 
 	public CompraDAO(EntityManagerFactory emf) {
 		super(emf);
