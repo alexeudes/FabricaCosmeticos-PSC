@@ -10,8 +10,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 
-public abstract class DAOGenerico<Entity> {
-
+public abstract class DAOGenerico<Entity> implements IDAOGenerico<Entity>{
+	
 	private EntityManagerFactory entityManagerFactory;
 	private Class<Entity> persistentClass;
 
@@ -22,7 +22,6 @@ public abstract class DAOGenerico<Entity> {
 		ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();  
 	    persistentClass = (Class<Entity>) parameterizedType.getActualTypeArguments()[0];  
 	}
-	
 	public Entity update(Entity objeto) {		
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -34,7 +33,7 @@ public abstract class DAOGenerico<Entity> {
 		return objeto;
 	}
 	
-	public final List<Entity> getAll() {
+	public List<Entity> getAll() {
 		List<Entity> instance = null;
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
@@ -62,7 +61,7 @@ public abstract class DAOGenerico<Entity> {
 		}
 	}
 
-	public final void insertCollection(Collection<Entity> colecao) {
+	public void insertCollection(Collection<Entity> colecao) {
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			EntityTransaction tx = em.getTransaction();
@@ -80,7 +79,7 @@ public abstract class DAOGenerico<Entity> {
 		}
 	}
 
-	public final void remove(Entity objeto) {
+	public void remove(Entity objeto) {
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
@@ -91,7 +90,7 @@ public abstract class DAOGenerico<Entity> {
 	}
 
 
-	public final Entity searchByKey(Serializable chave) {
+	public Entity searchByKey(Serializable chave) {
 		Entity instance = null;
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
@@ -103,7 +102,7 @@ public abstract class DAOGenerico<Entity> {
 		return instance;
 	}
 
-	public final void refresh(Entity object) {
+	public void refresh(Entity object) {
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		em.refresh(object);
 		em.close();
@@ -117,7 +116,7 @@ public abstract class DAOGenerico<Entity> {
 		return entityManagerFactory;
 	}
 
-	protected final Class<Entity> getPersistentClass() {
+	protected Class<Entity> getPersistentClass() {
 		return persistentClass;
 	}
 }
