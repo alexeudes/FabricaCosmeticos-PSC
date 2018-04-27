@@ -34,7 +34,7 @@ public class OrdemProducao {
 	@JoinColumn(name="idPedido", nullable=false)
 	private Pedido pedido;
 	
-	@OneToMany(mappedBy="pedido", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="ordemProducao", fetch = FetchType.LAZY)
 	@Cascade(CascadeType.ALL)
 	private Collection<Operador> operador;
 	
