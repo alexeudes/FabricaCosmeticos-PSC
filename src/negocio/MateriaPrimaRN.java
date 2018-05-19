@@ -8,30 +8,30 @@ import dao.MateriaPrimaDAO;
 
 public class MateriaPrimaRN implements IMateriaPrimaRN {
 	
-	private MateriaPrimaDAO materiaprimaDAO = DAOFactory.getMateriaPrimaDAO();
+	private MateriaPrimaDAO materiaPrimaDAO = DAOFactory.getMateriaPrimaDAO();
 
 	@Override
 	public List<MateriaPrima> getAll() {
-		return materiaprimaDAO.getAll();
+		return materiaPrimaDAO.getAll();
 	}
 	
 	@Override
 	public MateriaPrima searchByKey(Integer chave) {
-		return materiaprimaDAO.searchByKey(chave);
+		return materiaPrimaDAO.searchByKey(chave);
 	}
 
 	@Override
 	public void insert(MateriaPrima materiaPrima) {
-		materiaprimaDAO.insert(materiaPrima);
+		materiaPrimaDAO.insert(materiaPrima);
 	}
 	
 	@Override
 	public MateriaPrima update(MateriaPrima materiaPrima) {
-		return materiaprimaDAO.update(materiaPrima);
+		return materiaPrimaDAO.update(materiaPrima);
 	}
 
 	@Override
 	public void remove(MateriaPrima materiaPrima) {
-		materiaprimaDAO.remove(materiaPrima);
+		materiaPrimaDAO.remove(materiaPrima);
 	}
 }
