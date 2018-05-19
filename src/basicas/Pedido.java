@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -27,15 +29,23 @@ public class Pedido {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
 	@Column (nullable = false)
 	@Temporal(TemporalType.DATE)
+	@NotNull
 	private Calendar dataPedido;
+	
 	@Column (nullable = false)
 	@Temporal(TemporalType.DATE)
+	@NotNull
 	private Calendar prazoEntrega;
+	
 	@Column (nullable = true)
+	@Null
 	private String observacao;
+	
 	@Column (nullable = false)
+	@Null
 	private String status;
 	
 	//Relacionamentos

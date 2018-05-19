@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -22,11 +23,17 @@ public class OrdemProducao {
 	@Id
 	@GeneratedValue
 	private Integer id;	
+	
 	@Column(nullable=false)
-	private Calendar dataInicio;	
+	@NotNull
+	private Calendar dataInicio;
+	
 	@Column(nullable=false)
-	private Calendar dataFim;	
+	@NotNull
+	private Calendar dataFim;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String status;
 	
 	//Relacionamentos
