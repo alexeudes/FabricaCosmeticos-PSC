@@ -37,11 +37,6 @@ public abstract class DAOFactory {
 		return dao;
 	}
 	
-	public static EnderecoDAO getEnderecoDAO(){
-		EnderecoDAO dao = new EnderecoDAO(factory);
-		return dao;
-	}
-	
 	public static FornecedorDAO getFornecedorDAO(){
 		FornecedorDAO dao = new FornecedorDAO(factory);
 		return dao;
