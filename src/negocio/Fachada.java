@@ -1,4 +1,4 @@
-package dao;
+package negocio;
 
 public class Fachada {
 
