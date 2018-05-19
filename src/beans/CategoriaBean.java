@@ -1,6 +1,8 @@
 package beans;
 
 import basicas.Produto;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.faces.bean.ManagedBean;
 
@@ -13,6 +15,11 @@ public class CategoriaBean {
 	private String descricao;
 	private String tipo;
 	private Collection<Produto> produto;
+	
+	//Construtores
+	public CategoriaBean(){
+		this.produto = new ArrayList<Produto>();
+	}
 	
 	//Getters e Setters
 	public Integer getId() {

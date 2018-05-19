@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
@@ -20,6 +21,11 @@ public class FornecedorBean {
 	private String email;
 	private String telefone;
 	private Collection<MateriaPrima> materiaPrima;
+	
+	//Construtores
+	public FornecedorBean(){
+		this.materiaPrima = new ArrayList<MateriaPrima>();
+	}
 	
 	//Getters e Setters
 	public Integer getId() {

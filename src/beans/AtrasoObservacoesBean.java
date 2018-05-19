@@ -12,6 +12,11 @@ public class AtrasoObservacoesBean {
 	private String observacao;
 	private Pedido pedido;
 	
+	//Construtores
+	public AtrasoObservacoesBean(){
+		this.pedido = new Pedido();
+	}
+	
 	//Getters e Setters
 	public Integer getId() {
 		return id;

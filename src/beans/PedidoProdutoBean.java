@@ -15,6 +15,12 @@ public class PedidoProdutoBean {
 	private Pedido pedido;
 	private Produto produto;
 	
+	//Construtores
+	public PedidoProdutoBean() {
+		this.pedido = new Pedido();
+		this.produto = new Produto();
+	}
+	
 	//Getters e Setters
 	public Integer getId() {
 		return id;

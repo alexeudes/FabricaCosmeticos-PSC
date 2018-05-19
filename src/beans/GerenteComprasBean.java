@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
@@ -11,6 +12,11 @@ public class GerenteComprasBean {
 	
 	//Atributos
 	private Collection <Compra> compra;
+	
+	//Construtores
+	public GerenteComprasBean(){
+		this.compra = new ArrayList<Compra>();
+	}
 
 	//Getters e Setters
 	public Collection<Compra> getCompra() {

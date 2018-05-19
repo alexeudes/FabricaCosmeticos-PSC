@@ -11,6 +11,11 @@ public class OperadorBean {
 	private Boolean alocado;
 	private OrdemProducao ordemProducao;
 	
+	//Construtores
+	public OperadorBean() {
+		this.ordemProducao = new OrdemProducao();
+	}
+	
 	//Getters e Setters
 	public Boolean getAlocado() {
 		return alocado;

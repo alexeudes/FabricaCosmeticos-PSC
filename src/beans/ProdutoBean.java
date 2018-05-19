@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import basicas.Categoria;
@@ -18,6 +19,12 @@ public class ProdutoBean {
 	private Collection<MateriaPrima> materiaPrima;
 	private Collection<PedidoProduto> pedidoProduto;
 	private GerenteDesenvolvimento gerenteDesenvolvimento;
+	
+	public ProdutoBean() {
+		this.materiaPrima = new ArrayList<MateriaPrima>();
+		this.pedidoProduto = new ArrayList<PedidoProduto>();
+		this.gerenteDesenvolvimento = new GerenteDesenvolvimento();
+	}
 	
 	//Getters e Setters
 	public Integer getId() {
