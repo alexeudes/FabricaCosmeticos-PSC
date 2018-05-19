@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -21,7 +22,9 @@ public class AtrasoObservacoes {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String observacao;
 	
 	//Relacionamentos

@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -24,10 +24,13 @@ public class Categoria {
 	
 	@Id
 	@GeneratedValue
-	private Integer id;	
+	private Integer id;
+	
 	@Column(nullable=false)
 	private String descricao;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String tipo;
 	
 	//Relacionamentos

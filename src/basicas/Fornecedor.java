@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Fornecedor {
@@ -16,23 +18,45 @@ public class Fornecedor {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
 	@Column(nullable=false,length=14)
+	@Size(max = 14 , min = 14)
+	@NotNull
 	private String cnpj;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String razaoSocial;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String logradouro;
+	
 	@Column(nullable=false)
-	private String bairro;	
+	@NotNull
+	private String bairro;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String cidade;
+	
 	@Column(nullable=false,length=2)
-	private String estado;	
+	@Size(max = 2 , min = 2)
+	@NotNull
+	private String estado;
+	
 	@Column(nullable=false,length=9)
-	private String cep;	
+	@Size(max = 9 , min = 9)
+	@NotNull
+	private String cep;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String email;
+	
 	@Column(nullable=false,length=11)
+	@Size(max = 11 , min = 11)
+	@NotNull
 	private String telefone;
 	
 	//Relacionamentos

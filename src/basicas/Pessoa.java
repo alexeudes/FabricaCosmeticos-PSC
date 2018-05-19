@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -15,17 +17,31 @@ public class Pessoa {
 	@Id
 	@GeneratedValue
 	public Integer id;
+	
 	@Column (nullable = false, length = 11)
+	@Size(max = 11 , min = 11)
+	@NotNull
 	public String cpf;
+	
 	@Column (nullable = false)
+	@NotNull
 	public String nome;
+	
 	@Column (nullable = false, length = 11)
+	@Size(max = 11 , min = 11)
+	@NotNull
 	public String telefone;
+	
 	@Column (nullable = false)
+	@NotNull
 	public String email;
+	
 	@Column (nullable = false)
+	@NotNull
 	public String login;
+	
 	@Column (nullable = false)
+	@NotNull
 	public String senha;
 	
 	//Getters e Setters

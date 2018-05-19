@@ -2,27 +2,37 @@ package basicas;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Embeddable
 public class Endereco {
 
 	//atributos
 	@Column(length = 9,nullable = false)
+	@Size(max = 9 , min = 9)
+	@NotNull
 	private String cep;
 	
 	@Column(nullable= false)
+	@NotNull
 	private String logradouro;
 	
 	@Column(nullable= false)
+	@NotNull
 	private String numero;
 	
 	@Column(nullable= false)
+	@NotNull
 	private String bairro;
 	
 	@Column(nullable= false)
+	@NotNull
 	private String cidade;
 	
 	@Column(nullable= false,length=2)
+	@Size(max = 2 , min = 2)
+	@NotNull
 	private String estado;
 	
 	//Getters e Setters

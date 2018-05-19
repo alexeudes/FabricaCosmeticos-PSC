@@ -12,7 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -26,11 +26,17 @@ public class Produto {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String unidadeFornecimento;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String status;
+	
 	@Column(nullable=false)
+	@NotNull
 	private String descricao;
 	
 	//Relacionamentos

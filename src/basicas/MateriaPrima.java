@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Cascade;
@@ -29,15 +30,24 @@ public class MateriaPrima {
 	@Id
 	@GeneratedValue	
 	private Integer id;
+	
 	@Column(nullable = false)
+	@NotNull
 	private String nome;
+	
 	@Column(nullable = false)
+	@NotNull
 	private String descricao;
+	
 	@Column(nullable = false)
+	@NotNull
 	private String lote;
+	
 	@Temporal(TemporalType.DATE)
 	private Calendar validade;
+	
 	@Column(nullable = false)
+	@NotNull
 	private Integer estoqueAtual;
 	
 	//Relacionamentos

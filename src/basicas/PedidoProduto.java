@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class PedidoProduto {
@@ -14,9 +15,13 @@ public class PedidoProduto {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
 	@Column (nullable = false)
+	@NotNull
 	private Double preco;
+	
 	@Column (nullable = false)
+	@NotNull
 	private Integer quantidade;
 	
 	//Relacionamentos
