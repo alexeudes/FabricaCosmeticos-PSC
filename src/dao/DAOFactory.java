@@ -27,6 +27,11 @@ public abstract class DAOFactory {
 		return dao;
 	}
 	
+	public static ClienteDAO getClienteDAO(){
+		ClienteDAO dao = new ClienteDAO(factory);
+		return dao;
+	}
+	
 	public static CompraDAO getCompraDAO(){
 		CompraDAO dao = new CompraDAO(factory);
 		return dao;
