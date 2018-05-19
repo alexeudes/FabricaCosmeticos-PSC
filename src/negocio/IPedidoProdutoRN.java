@@ -2,17 +2,17 @@ package negocio;
 
 import java.util.List;
 
-import basicas.MateriaPrima;
+import basicas.PedidoProduto;
 
 public interface IPedidoProdutoRN {
 	
-	public List<MateriaPrima> getAll();
+	public List<PedidoProduto> getAll();
 
-	public MateriaPrima searchByKey(Integer chave);
+	public PedidoProduto searchByKey(Integer chave);
 
-	public void insert (MateriaPrima materiaPrima);
+	public void insert (PedidoProduto pedidoProduto);
 
-	public Object update(MateriaPrima materiaPrima);
+	public PedidoProduto update(PedidoProduto pedidoProduto);
 
-	public void remove (MateriaPrima materiaPrima);
+	public void remove (PedidoProduto pedidoProduto);
 }
