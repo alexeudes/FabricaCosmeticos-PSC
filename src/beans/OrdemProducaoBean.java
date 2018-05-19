@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import javax.faces.bean.ManagedBean;
@@ -16,6 +17,11 @@ public class OrdemProducaoBean {
 	private String status;
 	private Pedido pedido;
 	private Collection<Operador> operador;
+	
+	//Construtores
+	public OrdemProducaoBean() {
+		this.operador = new ArrayList<Operador>();
+	}
 	
 	//Getters e Setters
 	public Integer getId() {

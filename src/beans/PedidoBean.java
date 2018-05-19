@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 
@@ -27,6 +28,16 @@ public class PedidoBean {
 	private GerenteProducao gerenteProducao;
 	private Collection<PedidoProduto> pedidoProduto;
 	private OrdemProducao ordemProducao;
+	
+	//Construtores
+	public PedidoBean() {
+		this.cliente = new Cliente();
+		this.atendente = new Atendente();
+		this.gerenteVenda = new GerenteVenda();
+		this.gerenteProducao = new GerenteProducao();
+		this.pedidoProduto = new ArrayList<PedidoProduto>();
+		this.ordemProducao = new OrdemProducao();
+	}
 	
 	//Getters e Setters
 	public Integer getId() {

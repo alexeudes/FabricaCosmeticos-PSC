@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
@@ -18,6 +19,11 @@ public class ClienteBean {
 	private String email;
 	private Collection<Pedido> pedido;
 	private Endereco endereco;
+	
+	//Construtores
+	public ClienteBean(){
+		this.pedido = new ArrayList<Pedido>();
+	}
 	
 	//Getters e Setters
 	public Integer getId() {

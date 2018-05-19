@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
@@ -12,6 +13,10 @@ public class GerenteProducaoBean {
 	//Atributos
 	private Collection <Pedido> pedido;
 	
+	//Construtores
+	public GerenteProducaoBean() {
+		this.pedido = new ArrayList<Pedido>();
+	}
 	//Getters e Setters
 	public Collection<Pedido> getPedido() {
 		return pedido;

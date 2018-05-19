@@ -15,6 +15,11 @@ public class CompraBean {
 	private MateriaPrima materiaPrima;
 	private GerenteCompras gerenteCompras;
 	
+	//Construtores
+	public CompraBean(){
+		this.gerenteCompras = new GerenteCompras();
+	}
+	
 	//Getters e Setters
 	public Integer getId() {
 		return id;

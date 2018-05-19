@@ -1,5 +1,6 @@
 package beans;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 
@@ -21,6 +22,11 @@ public class MateriaPrimaBean {
 	private Collection<Compra> compra;
 	private Fornecedor fornecedor;
 	
+	//Construtores
+	public MateriaPrimaBean() {
+		this.compra = new ArrayList<Compra>();
+		this.fornecedor = new Fornecedor();
+	}
 	//Getters e Setters
 	public Integer getId() {
 		return id;
