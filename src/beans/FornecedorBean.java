@@ -2,9 +2,13 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import basicas.MateriaPrima;
+import negocio.Fachada;
+import basicas.Fornecedor;
 
 @ManagedBean
 public class FornecedorBean {
@@ -21,6 +25,9 @@ public class FornecedorBean {
 	private String email;
 	private String telefone;
 	private Collection<MateriaPrima> materiaPrima;
+	private List<Fornecedor> fornecedores;
+
+	private Fachada fachada = Fachada.getInstancia();
 	
 	//Construtores
 	public FornecedorBean(){
@@ -93,6 +100,29 @@ public class FornecedorBean {
 	}
 	public void setMateriaPrima(Collection<MateriaPrima> materiaPrima) {
 		this.materiaPrima = materiaPrima;
+	}
+	
+	public List<Fornecedor> getFornecedores() {
+		return fornecedores;
+	}
+
+	public void setFornecedores(List<Fornecedor> fornecedores) {
+		this.fornecedores = fornecedores;
+	}
+	
+	@PostConstruct
+	public void init() {
+		fornecedores = fachada.getAllFornecedor();
+		/*this.setFornecedores(new ArrayList<Fornecedor>());
+		Fornecedor fornecedor = new Fornecedor();
+		fornecedor.setCep("123456789");
+		fornecedor.setId(1010);
+		this.getFornecedores().add(fornecedor);*/
+		
+	}
+	
+	public void Insert() {
+		
 	}
 	
 }
