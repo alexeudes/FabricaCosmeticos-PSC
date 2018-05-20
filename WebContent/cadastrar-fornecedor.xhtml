@@ -13,37 +13,42 @@
 		<p:messages />
 		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="5">
 			<h:outputText value="CNPJ: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.cnpj}" required="true"
-				label="Firstname" />
+			<p:inputText value="#{fornecedorBean.fornecedor.cnpj}"
+				required="true" label="Firstname" />
 
 			<h:outputText value="Razão Social: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.razaoSocial}" required="true"
-				label="Lastname" />
+			<p:inputText value="#{fornecedorBean.fornecedor.razaoSocial}"
+				required="true" label="Lastname" />
 
 			<h:outputText value="Logradouro: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.logradouro}" required="true" />
+			<p:inputText value="#{fornecedorBean.fornecedor.logradouro}"
+				required="true" />
 
 			<h:outputText value="Bairro: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.bairro}" required="true" />
+			<p:inputText value="#{fornecedorBean.fornecedor.bairro}"
+				required="true" />
 
 			<h:outputText value="Cidade: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.cidade}" required="true" />
+			<p:inputText value="#{fornecedorBean.fornecedor.cidade}"
+				required="true" />
 
 			<h:outputText value="Estado: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.estado}" required="true" />
+			<p:inputText value="#{fornecedorBean.fornecedor.estado}"
+				required="true" />
 
 			<h:outputText value="CEP: *" />
 			<p:inputText value="#{fornecedorBean.fornecedor.cep}" required="true" />
 
 			<h:outputText value="Email: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.email}" required="true" />
+			<p:inputText value="#{fornecedorBean.fornecedor.email}"
+				required="true" />
 
 			<h:outputText value="Telefone: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.telefone}" required="true" />
+			<p:inputText value="#{fornecedorBean.fornecedor.telefone}"
+				required="true" />
 		</h:panelGrid>
 		<p:commandButton value="Salvar"
-			actionListener="#{fornecedorBean.insert}" update="growl"
-			process="@this" />
+			actionListener="#{fornecedorBean.insert}" update="growl" />
 		<p:button outcome="/fornecedor" value="Voltar" />
 	</h:form>
 </h:body>
