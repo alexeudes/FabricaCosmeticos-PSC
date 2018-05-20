@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
+  <h:head>
+   
+  </h:head>
+   
+  <h:body>
+       <h:form>
+            <!--  
+            <p:dataTable var="fornecedor" value="#{FornecedorBean.fornecedor}">
+                  <p:column headerText="Id">
+                       <h:outputText value="#{fornecedor.id}" />
+                  </p:column>
+   
+                  <p:column headerText="Nome">
+                       <h:outputText value="#{fornecedor.nome}" />
+                  </p:column>
+   
+                  <p:column headerText="CNPJ">
+                       <h:outputText value="#{fornecedor.cnpj}" />
+                  </p:column>
+   
+                  <p:column headerText="Razão Social">
+                       <h:outputText value="#{fornecedor.razaoSocial}" />
+                  </p:column>
+                  
+                  <p:column headerText="E-mail">
+                       <h:outputText value="#{fornecedor.email}" />
+                  </p:column>               
+            </p:dataTable>
+            -->
+            
+		<p:accordionPanel value="#{FornecedorBean.cars}" var="fornecedor">
+			<p:tab title="Fornecedor - #{fornecedor.nome}">
+				<h:panelGrid columns="2" cellpadding="5">
+					<f:facet name="header">
+						<!-- <p:graphicImage name="demo/images/car/#{car.brand}-big.gif" />-->
+					</f:facet>
+					<h:outputText value="ID:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.id}" />
+
+					<h:outputText value="Razão Social:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.razaoSocial}" />
+
+					<h:outputText value="CNPJ:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.cnpj}" />
+					
+					<h:outputText value="E-mail:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.email}" />
+					
+					<h:outputText value="Telefone:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.telefone}" />
+					
+					<h:outputText value="Logradouro:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.logradouro}" />
+					
+					<h:outputText value="Bairro:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.bairro}" />
+					
+					<h:outputText value="Cidade:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.cidade}" />
+					
+					<h:outputText value="Estado:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.estado}" />
+					
+					<h:outputText value="CEP:" style="font-weight: bold" />
+					<h:outputText value="#{fornecedor.cep}" />
+				</h:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+		
+	</h:form>
+  </h:body>
+  </html>
