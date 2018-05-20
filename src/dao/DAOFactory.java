@@ -7,8 +7,14 @@ import javax.persistence.Persistence;
 public abstract class DAOFactory {
 
 	private static final EntityManagerFactory factory;
+	
 	static {
-		factory = Persistence.createEntityManagerFactory("fabricacosmeticos");		
+		try {
+			Class.forName( "com.mysql.jdbc.Driver" );
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		factory = Persistence.createEntityManagerFactory("hibernatefc");		
 	}
 	
 	public static AtendenteDAO getAtendenteDAO(){

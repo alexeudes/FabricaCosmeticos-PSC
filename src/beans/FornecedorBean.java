@@ -11,7 +11,7 @@ import negocio.Fachada;
 import basicas.Fornecedor;
 
 @ManagedBean
-public class FornecedorBean {
+public class FornecedorBean{
 
 	//Atributos
 	private Integer id;
@@ -26,7 +26,8 @@ public class FornecedorBean {
 	private String telefone;
 	private Collection<MateriaPrima> materiaPrima;
 	private List<Fornecedor> fornecedores;
-
+	private Fornecedor fornecedor;
+	
 	private Fachada fachada = Fachada.getInstancia();
 	
 	//Construtores
@@ -110,19 +111,28 @@ public class FornecedorBean {
 		this.fornecedores = fornecedores;
 	}
 	
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+	
 	@PostConstruct
 	public void init() {
-		fornecedores = fachada.getAllFornecedor();
-		/*this.setFornecedores(new ArrayList<Fornecedor>());
+		//fornecedores = fachada.getAllFornecedor();
+		this.setFornecedores(new ArrayList<Fornecedor>());
 		Fornecedor fornecedor = new Fornecedor();
+		fornecedor.setRazaoSocial("Mercadinho do Seu Zé");
 		fornecedor.setCep("123456789");
 		fornecedor.setId(1010);
-		this.getFornecedores().add(fornecedor);*/
+		this.getFornecedores().add(fornecedor);
 		
 	}
 	
 	public void Insert() {
-		
+		this.fachada.insertFornecedor(fornecedor);
 	}
 	
 }
