@@ -122,14 +122,15 @@ public class FornecedorBean{
 	
 	@PostConstruct
 	public void init() {
-		fornecedores = fachada.getAllFornecedor();
 		this.setFornecedores(new ArrayList<Fornecedor>());
+		fornecedores = fachada.getAllFornecedor();
+		/*
 		Fornecedor fornecedor = new Fornecedor();
 		fornecedor.setRazaoSocial("Mercadinho do Seu Zé");
 		fornecedor.setCep("123456789");
 		fornecedor.setId(1010);
 		this.getFornecedores().add(fornecedor);
-		
+		*/
 	}
 	
 	public void insert() {
