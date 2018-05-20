@@ -33,6 +33,7 @@ public class FornecedorBean{
 	//Construtores
 	public FornecedorBean(){
 		this.materiaPrima = new ArrayList<MateriaPrima>();
+		this.fornecedor = new Fornecedor();
 	}
 	
 	//Getters e Setters
@@ -121,7 +122,7 @@ public class FornecedorBean{
 	
 	@PostConstruct
 	public void init() {
-		//fornecedores = fachada.getAllFornecedor();
+		fornecedores = fachada.getAllFornecedor();
 		this.setFornecedores(new ArrayList<Fornecedor>());
 		Fornecedor fornecedor = new Fornecedor();
 		fornecedor.setRazaoSocial("Mercadinho do Seu Zé");
@@ -131,8 +132,8 @@ public class FornecedorBean{
 		
 	}
 	
-	public void Insert() {
-		this.fachada.insertFornecedor(fornecedor);
+	public void insert() {
+		this.fachada.insertFornecedor(this.fornecedor);
 	}
 	
 }
