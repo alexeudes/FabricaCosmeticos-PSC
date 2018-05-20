@@ -8,6 +8,18 @@
 <title>Fábrica Cosmeticos</title>
 </h:head>
 <h:body>
-	
+	<h:form>
+    <p:growl>
+        <!--  <p:autoUpdate />-->
+    </p:growl>
+ 
+    <p:panelMenu style="width:300px">
+        <p:submenu label="Menu" >
+            <p:submenu label="Compras" icon="ui-icon-extlink">
+                    <p:menuitem value="Fornecedor" url="/fornecedor" icon="ui-icon-signal" />
+            </p:submenu>
+        </p:submenu>
+    </p:panelMenu>
+</h:form>
 </h:body>
 </html>
