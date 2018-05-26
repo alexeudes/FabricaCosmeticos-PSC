@@ -1,19 +1,54 @@
 package basicas;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+@Entity
 public class Compra {
 
 	//Atributos
-	private Fornecedor fornecedor;
+	@Id
+	@GeneratedValue
+	private Integer id;
+	
+	@Column(nullable=false)
+	@NotNull
+	private Double preco;
+	
+	@Column(nullable=false)
+	@NotNull
+	private Integer quantidade;
+	
+	//Relacionamentos
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="idMateriaPrima",insertable=true,updatable=true)
+	@Fetch(FetchMode.JOIN)
 	private MateriaPrima materiaPrima;
-	private double preco;
-	private int quantidade;
+	
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idGerCompra", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private GerenteCompras gerenteCompras;
 	
 	//Getters e Setters
-	public Fornecedor getFornecedor() {
-		return fornecedor;
+	
+	public Integer getId() {
+		return id;
 	}
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public MateriaPrima getMateriaPrima() {
 		return materiaPrima;
@@ -21,17 +56,23 @@ public class Compra {
 	public void setMateriaPrima(MateriaPrima materiaPrima) {
 		this.materiaPrima = materiaPrima;
 	}
-	public double getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreco(double preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	public int getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
+	}
+	public GerenteCompras getGerenteCompras() {
+		return gerenteCompras;
+	}
+	public void setGerenteCompras(GerenteCompras gerenteCompras) {
+		this.gerenteCompras = gerenteCompras;
 	}
 	
 }

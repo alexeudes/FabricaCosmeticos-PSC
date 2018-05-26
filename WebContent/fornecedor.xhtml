@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Fábrica Cosmeticos</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h3>Lista de Fornecedores</h3>
+
+		<p:button outcome="/cadastrar-fornecedor" title="cadastrar"
+			icon="ui-icon-disk" />
+
+		<p:accordionPanel value="#{fornecedorBean.fornecedores}" var="f">
+			<p:tab title="#{f.id} - #{f.razaoSocial}">
+				<h:panelGrid columns="2" cellpadding="5">
+
+					<h:outputText value="CNPJ:" style="font-weight: bold" />
+					<h:outputText value="#{f.cnpj}" />
+
+					<h:outputText value="E-mail:" style="font-weight: bold" />
+					<h:outputText value="#{f.email}" />
+
+					<h:outputText value="Telefone:" style="font-weight: bold" />
+					<h:outputText value="#{f.telefone}" />
+
+					<h:outputText value="Logradouro:" style="font-weight: bold" />
+					<h:outputText value="#{f.logradouro}" />
+
+					<h:outputText value="Bairro:" style="font-weight: bold" />
+					<h:outputText value="#{f.bairro}" />
+
+					<h:outputText value="Cidade:" style="font-weight: bold" />
+					<h:outputText value="#{f.cidade}" />
+
+					<h:outputText value="Estado:" style="font-weight: bold" />
+					<h:outputText value="#{f.estado}" />
+
+					<h:outputText value="CEP:" style="font-weight: bold" />
+					<h:outputText value="#{f.cep}" />
+				</h:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+		<!-- <p:graphicImage name="demo/images/car/#{car.brand}-big.gif" />-->
+	</h:form>
+</h:body>
+</html>

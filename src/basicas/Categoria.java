@@ -1,21 +1,55 @@
 package basicas;
 
-import java.util.List;
+import java.util.Collection;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+@Entity
 public class Categoria {
 
 	//Atributos
 	
-	private int id;
+	@Id
+	@GeneratedValue
+	private Integer id;
+	
+	@Column(nullable=false)
 	private String descricao;
-	private List<Produto> produtos;
+	
+	@Column(nullable=false)
+	@NotNull
 	private String tipo;
 	
+	//Relacionamentos
+	@OneToMany(mappedBy="categoria")
+	@Cascade(CascadeType.ALL)
+	private Collection<Produto> produto;
+	
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name = "idQuimico", nullable = false)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
+	private Quimico quimico;
+	
+	
 	//Getters e Setters
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getDescricao() {
@@ -24,17 +58,29 @@ public class Categoria {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public List<Produto> getProdutos() {
-		return produtos;
+	public Collection<Produto> getProdutos() {
+		return produto;
 	}
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	public void setProdutos(Collection<Produto> produto) {
+		this.produto = produto;
 	}
 	public String getTipo() {
 		return tipo;
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	public Collection<Produto> getProduto() {
+		return produto;
+	}
+	public void setProduto(Collection<Produto> produto) {
+		this.produto = produto;
+	}
+	public Quimico getQuimico() {
+		return quimico;
+	}
+	public void setQuimico(Quimico quimico) {
+		this.quimico = quimico;
 	}
 	
 }

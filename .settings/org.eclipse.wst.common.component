@@ -2,8 +2,7 @@
     <wb-module deploy-name="FabricaCosmeticos-PSC">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/FabricaCosmeticos-PSC"/>
-        <property name="context-root" value="FabricaCosmeticos-PSC"/>
         <property name="java-output-path" value="/FabricaCosmeticos-PSC/build/classes"/>
+        <property name="context-root" value="fabrica-cosmeticos-psc"/>
     </wb-module>
 </project-modules>
