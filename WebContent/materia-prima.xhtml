@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Fábrica Cosmeticos</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h3>Lista de Matéria Prima</h3>
+
+		<p:button outcome="/cadastrar-materia-prima" title="cadastrar"
+			icon="ui-icon-disk" />
+
+		<p:accordionPanel value="#{materiaPrimaBean.materiasPrimas}"
+			var="materiaPrima">
+			<p:tab title="#{materiaPrima.id} - #{materiaPrima.nome}">
+				<h:panelGrid columns="2" cellpadding="5">
+
+					<h:outputText value="Descrição:" style="font-weight: bold" />
+					<h:outputText value="#{materiaPrima.descricao}" />
+
+					<h:outputText value="Lote:" style="font-weight: bold" />
+					<h:outputText value="#{materiaPrima.lote}" />
+
+					<h:outputText value="Validade:" style="font-weight: bold" />
+					<h:outputText value="#{materiaPrima.validade}" />
+
+					<h:outputText value="Estoque atual:" style="font-weight: bold" />
+					<h:outputText value="#{materiaPrima.estoqueAtual}" />
+
+					<h:outputText value="Fornecedor:" style="font-weight: bold" />
+					<h:outputText
+						value="#{materiaPrima.fornecedor.id} - {materiaPrima.fornecedor.razaoSocial}" />
+				</h:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+	</h:form>
+</h:body>
+</html>
