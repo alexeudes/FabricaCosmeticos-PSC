@@ -3,6 +3,7 @@ package beans;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -24,8 +25,10 @@ public class MateriaPrimaBean {
 	private Integer estoqueAtual;
 	private Collection<Compra> compra;
 	private Fornecedor fornecedor;
-	private Collection<Fornecedor> fornecedores;
+	
 	private MateriaPrima materiaPrima;
+	private Collection<Fornecedor> fornecedores;
+	private List<MateriaPrima> materiasPrimas;
 	
 	private Fachada fachada = Fachada.getInstancia();
 	
@@ -33,7 +36,9 @@ public class MateriaPrimaBean {
 	public MateriaPrimaBean() {
 		this.compra = new ArrayList<Compra>();
 		this.fornecedor = new Fornecedor();
+		this.materiaPrima = new MateriaPrima(); 
 	}
+	
 	//Getters e Setters
 	public Integer getId() {
 		return id;
@@ -83,25 +88,33 @@ public class MateriaPrimaBean {
 	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
 	}
-	
-	public Collection<Fornecedor> getFornecedores() {
-		return fornecedores;
-	}
-	public void setFornecedores(Collection<Fornecedor> fornecedores) {
-		this.fornecedores = fornecedores;
-	}
+
 	public MateriaPrima getMateriaPrima() {
 		return materiaPrima;
 	}
 	public void setMateriaPrima(MateriaPrima materiaPrima) {
 		this.materiaPrima = materiaPrima;
 	}
-	
-	//Método que carrega uma lista de fornecedores ao inicializar a tela
+	public Collection<Fornecedor> getFornecedores() {
+		return fornecedores;
+	}
+	public void setFornecedores(Collection<Fornecedor> fornecedores) {
+		this.fornecedores = fornecedores;
+	}
+	public List<MateriaPrima> getMateriasPrimas() {
+		return materiasPrimas;
+	}
+	public void setMateriasPrimas(List<MateriaPrima> materiasPrimas) {
+		this.materiasPrimas = materiasPrimas;
+	}
+
+	//Método que carrega uma lista de Matéria prima ao inicializar a tela
 	@PostConstruct
 	public void init() {
 		this.setFornecedores(new ArrayList<Fornecedor>());
-		fornecedores = fachada.getAllFornecedor();
+		this.setMateriasPrimas(new ArrayList<MateriaPrima>());
+		this.fornecedores = fachada.getAllFornecedor();
+		this.materiasPrimas = fachada.getAllMateriaPrima();
 	}
 	
 	//Método para inserir a Matéria-Prima
