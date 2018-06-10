@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastrar Matéria-Prima</title>
+</h:head>
+<body>
+	<h:form>
+		<p:growl id="growl" sticky="true" showDetail="true" />
+		<p:messages />
+		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="5">
+			<h:outputText value="Nome: *" />
+			<p:inputText value="#{materiaPrimaBean.materiaPrima.nome}"
+				required="true" label="Firstname" />
+
+			<h:outputText value="Descrição: *" />
+			<p:inputText value="#{materiaPrimaBean.materiaPrima.descricao}"
+				required="true" />
+
+			<h:outputText value="Lote: *" />
+			<p:inputText value="#{materiaPrimaBean.materiaPrima.lote}"
+				required="true" />
+
+			<h:outputText value="Validade: *" />
+			<p:calendar id="mask" value="#{materiaPrimaBean.data}"
+				pattern="dd-MM-yyyy" mask="true" />
+
+			<h:outputText value="Estoque Atual: *" />
+			<p:inputText value="#{materiaPrimaBean.materiaPrima.estoqueAtual}"
+				required="true" />
+
+			<h:outputText value="Fornecedor: *" />
+			<!--  <p:selectOneMenu id="fornecedores"
+				value="#{materiaPrimaBean.materiaPrima.fornecedor}" converter="entityConverter"
+				style="width:250px">
+				<f:selectItem itemLabel="Selecionar" noSelectionOption="true" />
+				<f:selectItems value="#{materiaPrimaBean.fornecedores}"
+					var="fornecedor" itemLabel="#{fornecedor.razaoSocial}"
+					itemValue="#{fornecedores}" />
+			</p:selectOneMenu> -->
+		</h:panelGrid>
+		<p:commandButton value="Salvar"
+			actionListener="#{materiaPrimaBean.insert}" update="growl" />
+		<p:button outcome="/fornecedor" value="Voltar" />
+	</h:form>
+</body>
+</html>
