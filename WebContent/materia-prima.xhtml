@@ -28,14 +28,16 @@
 					<h:outputText value="#{materiaPrima.lote}" />
 
 					<h:outputText value="Validade:" style="font-weight: bold" />
-					<h:outputText value="#{materiaPrima.validade}" />
+					<h:outputText value="#{materiaPrima.validade.time}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
 
 					<h:outputText value="Estoque atual:" style="font-weight: bold" />
 					<h:outputText value="#{materiaPrima.estoqueAtual}" />
 
 					<h:outputText value="Fornecedor:" style="font-weight: bold" />
 					<h:outputText
-						value="#{materiaPrima.fornecedor.id} - {materiaPrima.fornecedor.razaoSocial}" />
+						value="#{materiaPrima.fornecedor.id} - #{materiaPrima.fornecedor.razaoSocial}" />
 				</h:panelGrid>
 			</p:tab>
 		</p:accordionPanel>
