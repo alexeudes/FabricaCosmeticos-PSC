@@ -1,7 +1,7 @@
 package basicas;
 
-import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -18,8 +18,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -44,7 +44,7 @@ public class MateriaPrima {
 	private String lote;
 	
 	@Temporal(TemporalType.DATE)
-	private Calendar validade;
+	private Date validade;
 	
 	@Column(nullable = false)
 	@NotNull
@@ -66,8 +66,13 @@ public class MateriaPrima {
 				inverseJoinColumns=@JoinColumn(name ="idProduto"))
 	private List<Produto> produto;
 	
-	//Getters e Setters
+	//Constutor
+	public MateriaPrima() {
+		super();
+		this.fornecedor = new Fornecedor();
+	}
 	
+	//Getters e Setters
 	public Integer getId() {
 		return id;
 	}
@@ -92,10 +97,10 @@ public class MateriaPrima {
 	public void setLote(String lote) {
 		this.lote = lote;
 	}
-	public Calendar getValidade() {
+	public Date getValidade() {
 		return validade;
 	}
-	public void setValidade(Calendar validade) {
+	public void setValidade(Date validade) {
 		this.validade = validade;
 	}
 	public Integer getEstoqueAtual() {

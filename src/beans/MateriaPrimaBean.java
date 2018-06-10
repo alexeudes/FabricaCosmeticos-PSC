@@ -1,8 +1,8 @@
 package beans;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -21,7 +21,7 @@ public class MateriaPrimaBean {
 	private String nome;
 	private String descricao;
 	private String lote;
-	private Calendar validade;
+	private Date validade;
 	private Integer estoqueAtual;
 	private Collection<Compra> compra;
 	private Fornecedor fornecedor;
@@ -64,10 +64,10 @@ public class MateriaPrimaBean {
 	public void setLote(String lote) {
 		this.lote = lote;
 	}
-	public Calendar getValidade() {
+	public Date getValidade() {
 		return validade;
 	}
-	public void setValidade(Calendar validade) {
+	public void setValidade(Date validade) {
 		this.validade = validade;
 	}
 	public Integer getEstoqueAtual() {

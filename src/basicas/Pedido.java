@@ -1,7 +1,7 @@
 package basicas;
 
-import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,12 +33,12 @@ public class Pedido {
 	@Column (nullable = false)
 	@Temporal(TemporalType.DATE)
 	@NotNull
-	private Calendar dataPedido;
+	private Date dataPedido;
 	
 	@Column (nullable = false)
 	@Temporal(TemporalType.DATE)
 	@NotNull
-	private Calendar prazoEntrega;
+	private Date prazoEntrega;
 	
 	@Column (nullable = true)
 	@Null
@@ -92,10 +92,10 @@ public class Pedido {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Calendar getDataPedido() {
+	public Date getDataPedido() {
 		return dataPedido;
 	}
-	public void setDataPedido(Calendar dataPedido) {
+	public void setDataPedido(Date dataPedido) {
 		this.dataPedido = dataPedido;
 	}
 	public Cliente getCliente() {
@@ -104,10 +104,10 @@ public class Pedido {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public Calendar getPrazoEntrega() {
+	public Date getPrazoEntrega() {
 		return prazoEntrega;
 	}
-	public void setPrazoEntrega(Calendar prazoEntrega) {
+	public void setPrazoEntrega(Date prazoEntrega) {
 		this.prazoEntrega = prazoEntrega;
 	}
 	public String getObservacao() {

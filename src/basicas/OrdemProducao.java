@@ -1,7 +1,7 @@
 package basicas;
 
-import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,11 +26,11 @@ public class OrdemProducao {
 	
 	@Column(nullable=false)
 	@NotNull
-	private Calendar dataInicio;
+	private Date dataInicio;
 	
 	@Column(nullable=false)
 	@NotNull
-	private Calendar dataFim;
+	private Date dataFim;
 	
 	@Column(nullable=false)
 	@NotNull
@@ -52,16 +52,16 @@ public class OrdemProducao {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Calendar getDataInicio() {
+	public Date getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Calendar dataInicio) {
+	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public Calendar getDataFim() {
+	public Date getDataFim() {
 		return dataFim;
 	}
-	public void setDataFim(Calendar dataFim) {
+	public void setDataFim(Date dataFim) {
 		this.dataFim = dataFim;
 	}
 	public Pedido getPedido() {

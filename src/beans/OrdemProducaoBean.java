@@ -1,19 +1,21 @@
 package beans;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
-import basicas.Pedido;
+
 import basicas.Operador;
+import basicas.Pedido;
 
 @ManagedBean
 public class OrdemProducaoBean {
 
 	//Atributos
 	private Integer id;
-	private Calendar dataInicio;
-	private Calendar dataFim;
+	private Date dataInicio;
+	private Date dataFim;
 	private String status;
 	private Pedido pedido;
 	private Collection<Operador> operador;
@@ -30,16 +32,16 @@ public class OrdemProducaoBean {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Calendar getDataInicio() {
+	public Date getDataInicio() {
 		return dataInicio;
 	}
-	public void setDataInicio(Calendar dataInicio) {
+	public void setDataInicio(Date dataInicio) {
 		this.dataInicio = dataInicio;
 	}
-	public Calendar getDataFim() {
+	public Date getDataFim() {
 		return dataFim;
 	}
-	public void setDataFim(Calendar dataFim) {
+	public void setDataFim(Date dataFim) {
 		this.dataFim = dataFim;
 	}
 	public String getStatus() {

@@ -1,7 +1,7 @@
 package beans;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
@@ -18,8 +18,8 @@ public class PedidoBean {
 
 	//Atributos
 	private Integer id;
-	private Calendar dataPedido;
-	private Calendar prazoEntrega;
+	private Date dataPedido;
+	private Date prazoEntrega;
 	private String observacao;
 	private String status;
 	private Cliente cliente;
@@ -46,16 +46,16 @@ public class PedidoBean {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Calendar getDataPedido() {
+	public Date getDataPedido() {
 		return dataPedido;
 	}
-	public void setDataPedido(Calendar dataPedido) {
+	public void setDataPedido(Date dataPedido) {
 		this.dataPedido = dataPedido;
 	}
-	public Calendar getPrazoEntrega() {
+	public Date getPrazoEntrega() {
 		return prazoEntrega;
 	}
-	public void setPrazoEntrega(Calendar prazoEntrega) {
+	public void setPrazoEntrega(Date prazoEntrega) {
 		this.prazoEntrega = prazoEntrega;
 	}
 	public String getObservacao() {
