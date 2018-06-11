@@ -34,16 +34,16 @@
 				required="true" />
 
 			<h:outputText value="Fornecedor" />
-			<p:selectOneMenu value="#{materiaPrimaBean.fornecedor}" converter="fornecedorConverter"
+			<p:selectOneMenu value="#{materiaPrimaBean.fornecedor.id}"
  				style="width:250px">
 				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
 				<f:selectItems value="#{materiaPrimaBean.fornecedores}"
-					var="fornecedor" itemValue="#{fornecedor}" itemLabel="#{fornecedor.razaoSocial}"/>
+					var="fornecedor" itemValue="#{fornecedor.id}" itemLabel="#{fornecedor.razaoSocial}"/>
 			</p:selectOneMenu>
 		</h:panelGrid>
 		<p:commandButton value="Salvar"
 			actionListener="#{materiaPrimaBean.insert}" update="growl" />
-		<p:button outcome="/fornecedor" value="Voltar" />
+		<p:button outcome="/materia-prima" value="Voltar" />
 	</h:form>
 </body>
 </html>
