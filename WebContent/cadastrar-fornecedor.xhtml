@@ -2,6 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -14,7 +16,7 @@
 		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="5">
 			<h:outputText value="CNPJ: *" />
 			<p:inputText value="#{fornecedorBean.fornecedor.cnpj}"
-				required="true" label="Firstname" />
+				required="true" label="Firstname" maxlength="14" />
 
 			<h:outputText value="Razão Social: *" />
 			<p:inputText value="#{fornecedorBean.fornecedor.razaoSocial}"
@@ -34,10 +36,11 @@
 
 			<h:outputText value="Estado: *" />
 			<p:inputText value="#{fornecedorBean.fornecedor.estado}"
-				required="true" />
+				required="true" maxlength="2" />
 
 			<h:outputText value="CEP: *" />
-			<p:inputText value="#{fornecedorBean.fornecedor.cep}" required="true" />
+			<p:inputText value="#{fornecedorBean.fornecedor.cep}" required="true"
+				maxlength="9" />
 
 			<h:outputText value="Email: *" />
 			<p:inputText value="#{fornecedorBean.fornecedor.email}"
@@ -45,7 +48,7 @@
 
 			<h:outputText value="Telefone: *" />
 			<p:inputText value="#{fornecedorBean.fornecedor.telefone}"
-				required="true" />
+				required="true" maxlength="11" />
 		</h:panelGrid>
 		<p:commandButton value="Salvar"
 			actionListener="#{fornecedorBean.insert}" update="growl" />
