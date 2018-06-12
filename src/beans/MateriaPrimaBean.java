@@ -124,4 +124,8 @@ public class MateriaPrimaBean {
 		this.materiaPrima.setFornecedor(this.getFornecedor());
 		this.fachada.insertMateriaPrima(this.materiaPrima);
 	}
+	
+	public void delete(MateriaPrima mp) { 
+		this.fachada.removeMateriaPrima(mp);
+	}
 }

@@ -39,6 +39,9 @@
 					<h:outputText
 						value="#{materiaPrima.fornecedor.id} - #{materiaPrima.fornecedor.razaoSocial}" />
 				</h:panelGrid>
+				<p:commandButton value="Deletar" 
+					actionListener="#{materiaPrimaBean.delete(materiaPrima)}"
+					process="@this" icon="ui-icon-close" />
 			</p:tab>
 		</p:accordionPanel>
 	</h:form>
