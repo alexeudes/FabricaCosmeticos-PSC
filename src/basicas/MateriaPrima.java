@@ -55,7 +55,9 @@ public class MateriaPrima {
 	private Collection<Compra> compra;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="idFornecedor")
+	@JoinColumn(name="idFornecedor",insertable=true,updatable=true)
+	@Fetch(FetchMode.JOIN)
+	@Cascade(CascadeType.ALL)
 	private Fornecedor fornecedor;
 	
 	@ManyToMany(fetch = FetchType.LAZY)

@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
 import basicas.Compra;
 import basicas.Fornecedor;
@@ -15,7 +14,6 @@ import basicas.MateriaPrima;
 import negocio.Fachada;
 
 @ManagedBean
-@ViewScoped
 public class MateriaPrimaBean {
 
 	//Atributos
@@ -26,7 +24,8 @@ public class MateriaPrimaBean {
 	private Date validade;
 	private Integer estoqueAtual;
 	private Collection<Compra> compra;
-	private Fornecedor fornecedor;	
+	private Fornecedor fornecedor;
+	
 	private MateriaPrima materiaPrima;
 	private Collection<Fornecedor> fornecedores;
 	private List<MateriaPrima> materiasPrimas;
@@ -114,14 +113,12 @@ public class MateriaPrimaBean {
 	public void init() {
 		this.setFornecedores(new ArrayList<Fornecedor>());
 		this.setMateriasPrimas(new ArrayList<MateriaPrima>());
-		this.setFornecedor(new Fornecedor());
 		this.fornecedores = fachada.getAllFornecedor();
 		this.materiasPrimas = fachada.getAllMateriaPrima();
 	}
 	
 	//Método para inserir a Matéria-Prima
 	public void insert() {
-		this.materiaPrima.setFornecedor(this.getFornecedor());
 		this.fachada.insertMateriaPrima(this.materiaPrima);
 	}
 	
