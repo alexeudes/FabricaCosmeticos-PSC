@@ -7,7 +7,7 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Cadastrar Compra</title>
-</h:head>
+</h:head>	
 <body>
 	<h:form>
 		<p:growl id="growl" sticky="true" showDetail="true" />
@@ -15,27 +15,27 @@
 		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="3">
 		
 			<h:outputText value="Fornecedor" />
-			<p:selectOneMenu value="#{materiaPrimaBean.fornecedor.id}"
+			<p:selectOneMenu value="#{compraBean.fornecedor.id}"
  				style="width:250px">
 				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
-				<f:selectItems value="#{materiaPrimaBean.fornecedores}"
+				<f:selectItems value="#{compraBean.fornecedores}"
 					var="fornecedor" itemValue="#{fornecedor.id}" itemLabel="#{fornecedor.razaoSocial}"/>
 			</p:selectOneMenu>
-		
-			<h:outputText value="Matéria Prima" />
-			<p:selectOneMenu value="#{materiaPrimaBean.materiaPrima.nome}"
+		  
+			<h:outputText value="MatériaPrima" />
+			<p:selectOneMenu value="#{compraBean.materiaPrima.id}"
  				style="width:250px">
 				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
-				<f:selectItems value="#{materiaPrimaBean.materiaPrima}"
-					var="fornecedor" itemValue="#{materiaPrima.id}" itemLabel="#{materiaPrima.nome}"/>
+				<f:selectItems value="#{compraBean.materiasPrimas}"
+					var="materiaPrima" itemValue="#{materiaPrima.id}" itemLabel="#{materiaPrima.nome}"/>
 			</p:selectOneMenu>
 
 			<h:outputText value="Quantidade: *" />
 			<p:inputText value="#{compraBean.compra.quantidade}"
 				required="true" />
 
-			<h:outputText value="Valor: *" />
-			<p:inputText value="#{compraBean.compra.valor}"
+			<h:outputText value="Preço: *" />
+			<p:inputText value="#{compraBean.compra.preco}"
 				required="true" />
 
 			

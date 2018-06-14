@@ -22,20 +22,19 @@ public class CompraBean {
 	private GerenteCompras gerenteCompras;
 	private List<Compra>compras;
 	private Compra compra;
-	
+	private Fornecedor fornecedor;	
 	private Collection<Fornecedor> fornecedores;
+	private Collection<MateriaPrima> materiasPrimas;
 	
+	private Fachada fachada = Fachada.getInstancia();
 	
 	//Construtores
 	public CompraBean(){
 		this.compras = new ArrayList<Compra>();
-		this.gerenteCompras = new GerenteCompras();
+		this.fornecedor = new Fornecedor();
+		this.materiaPrima = new MateriaPrima();
 	}
-	
-	private List<MateriaPrima> materiasPrimas;
-	
-	private Fachada fachada = Fachada.getInstancia();
-	
+		
 	//Getters e Setters
 	public Integer getId() {
 		return id;
@@ -67,9 +66,6 @@ public class CompraBean {
 	public void setGerenteCompras(GerenteCompras gerenteCompras) {
 		this.gerenteCompras = gerenteCompras;
 	}
-	private void setCompras(ArrayList<Compra> compras) {
-		this.compras = compras;		
-	}	
 	public List<Compra> getCompras() {
 		return compras;
 	}
@@ -91,23 +87,34 @@ public class CompraBean {
 		this.fornecedores = fornecedores;
 	}
 
-	public List<MateriaPrima> getMateriasPrimas() {
-		return materiasPrimas;
-	}
-
 	public void setMateriasPrimas(List<MateriaPrima> materiasPrimas) {
 		this.materiasPrimas = materiasPrimas;
 	}
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
+	public Collection<MateriaPrima> getMateriasPrimas() {
+		return materiasPrimas;
+	}
+	public void setMateriasPrimas(Collection<MateriaPrima> materiasPrimas) {
+		this.materiasPrimas = materiasPrimas;
+	}
+	public void insert() {
+		this.fachada.insertCompra(this.compra);
+	}
+
 
 
 	
 	@PostConstruct
 	public void init() {
-		this.setCompras(new ArrayList<Compra>());
-		compras = fachada.getAllCompra();		
+		this.fornecedores = new ArrayList<Fornecedor>();
+		this.materiasPrimas = new ArrayList<MateriaPrima>();
+		this.fornecedores = fachada.getAllFornecedor();
+		this.materiasPrimas = fachada.getAllMateriaPrima();
 	}
 	
-	public void insert() {
-		this.fachada.insertCompra(this.compra);
-	}
 }
