@@ -42,7 +42,7 @@ public class Fachada {
 	private static IPessoaRN pessoaRN;
 	private static IProdutoRN produtoRN;
 	private static IQuimicoRN quimicoRN;
-	
+
 	private Fachada() {
 		super();
 		atendenteRN = new AtendenteRN();
@@ -64,16 +64,15 @@ public class Fachada {
 		produtoRN = new ProdutoRN();
 		quimicoRN = new QuimicoRN();
 	}
-	
+
 	public static Fachada getInstancia() {
-        if (instancia == null) {
-            instancia = new Fachada();
-        }
-        return instancia;
+		if (instancia == null) {
+			instancia = new Fachada();
+		}
+		return instancia;
 	}
-	
-	
-	//Ações Atendente
+
+	// Ações Atendente
 	public List<Atendente> getAllAtendente() {
 		return atendenteRN.getAll();
 	}
@@ -82,7 +81,7 @@ public class Fachada {
 		return atendenteRN.searchByKey(chave);
 	}
 
-	public void insertAtendente (Atendente atendente) {
+	public void insertAtendente(Atendente atendente) {
 		atendenteRN.insert(atendente);
 	}
 
@@ -90,12 +89,11 @@ public class Fachada {
 		return atendenteRN.update(atendente);
 	}
 
-	public void removeAtendente (Atendente atendente) {
+	public void removeAtendente(Atendente atendente) {
 		atendenteRN.remove(atendente);
 	}
-	
-	
-	//Ações Atraso Observações
+
+	// Ações Atraso Observações
 	public List<AtrasoObservacoes> getAllAtrasoObservacoes() {
 		return atrasoObservacoesRN.getAll();
 	}
@@ -115,39 +113,37 @@ public class Fachada {
 	public void removeAtrasoObservacoes(AtrasoObservacoes atrasoObservacoes) {
 		atrasoObservacoesRN.remove(atrasoObservacoes);
 	}
-	
-	
-	//Ações Categoria
+
+	// Ações Categoria
 	public List<Categoria> getAllCategoria() {
-		  return categoriaRN.getAll();
-	}	
-		
-	public void insert(Categoria categoria) {
+		return categoriaRN.getAll();
+	}
+
+	public void insertCategoria(Categoria categoria) {
 		categoriaRN.insert(categoria);
 	}
-		
-	public Categoria update(Categoria categoria) {
+
+	public Categoria updateCategoria(Categoria categoria) {
 		return categoriaRN.update(categoria);
 	}
-	
-	public void remove(Categoria categoria) {
+
+	public void removeCategoria(Categoria categoria) {
 		categoriaRN.remove(categoria);
 	}
-	
+
 	public Categoria searchByKeyCategoria(Integer chave) {
 		return categoriaRN.searchByKey(chave);
 	}
-	
-	
-	//Ações Cliente
+
+	// Ações Cliente
 	public List<Cliente> getAllCliente() {
-	  return clienteRN.getAll();
-	}	
-		
+		return clienteRN.getAll();
+	}
+
 	public void insertCliente(Cliente cliente) {
 		clienteRN.insert(cliente);
 	}
-		
+
 	public Cliente updateCliente(Cliente cliente) {
 		return clienteRN.update(cliente);
 	}
@@ -155,21 +151,20 @@ public class Fachada {
 	public void removeCliente(Cliente cliente) {
 		clienteRN.remove(cliente);
 	}
-		
+
 	public Cliente searchByKeyCliente(Integer chave) {
 		return clienteRN.searchByKey(chave);
 	}
-	
-	
-	//Ações Compra
+
+	// Ações Compra
 	public List<Compra> getAllCompra() {
-	  return compraRN.getAll();
-	}	
-		
+		return compraRN.getAll();
+	}
+
 	public void insertCompra(Compra compra) {
 		compraRN.insert(compra);
 	}
-		
+
 	public Compra updateCompra(Compra compra) {
 		return compraRN.update(compra);
 	}
@@ -177,21 +172,20 @@ public class Fachada {
 	public void removeCompra(Compra compra) {
 		compraRN.remove(compra);
 	}
-		
+
 	public Compra searchByKeyCompra(Integer chave) {
 		return compraRN.searchByKey(chave);
 	}
-	
-	
-	//Ações Fornecedor
+
+	// Ações Fornecedor
 	public List<Fornecedor> getAllFornecedor() {
-	  return fornecedorRN.getAll();
-	 }	
-	
+		return fornecedorRN.getAll();
+	}
+
 	public void insertFornecedor(Fornecedor fornecedor) {
 		fornecedorRN.insert(fornecedor);
 	}
-	
+
 	public Fornecedor updateFornecedor(Fornecedor fornecedor) {
 		return fornecedorRN.update(fornecedor);
 	}
@@ -199,21 +193,20 @@ public class Fachada {
 	public void removeFornecedor(Fornecedor fornecedor) {
 		fornecedorRN.remove(fornecedor);
 	}
-	
+
 	public Fornecedor searchByKeyFornecedor(Integer chave) {
 		return fornecedorRN.searchByKey(chave);
 	}
-	
-	
-	//Ações Gerente Compras
+
+	// Ações Gerente Compras
 	public List<GerenteCompras> getAllGerenteCompras() {
-	  return gerenteComprasRN.getAll();
-	}	
-		
+		return gerenteComprasRN.getAll();
+	}
+
 	public void insertGerenteCompras(GerenteCompras gerenteCompras) {
 		gerenteComprasRN.insert(gerenteCompras);
 	}
-		
+
 	public GerenteCompras updateGerenteCompras(GerenteCompras gerenteCompras) {
 		return gerenteComprasRN.update(gerenteCompras);
 	}
@@ -221,21 +214,20 @@ public class Fachada {
 	public void removeGerenteCompras(GerenteCompras gerenteCompras) {
 		gerenteComprasRN.remove(gerenteCompras);
 	}
-		
+
 	public GerenteCompras searchByKeyGerenteCompras(Integer chave) {
 		return gerenteComprasRN.searchByKey(chave);
 	}
 
-	
-	//Ações Gerente Desenvolvimento
+	// Ações Gerente Desenvolvimento
 	public List<GerenteDesenvolvimento> getAllGerenteDesenvolvimento() {
-	  return gerenteDesenvolvimentoRN.getAll();
-	}	
-		
+		return gerenteDesenvolvimentoRN.getAll();
+	}
+
 	public void insertGerenteDesenvolvimento(GerenteDesenvolvimento gerenteDesenvolvimento) {
 		gerenteDesenvolvimentoRN.insert(gerenteDesenvolvimento);
 	}
-		
+
 	public GerenteDesenvolvimento updateGerenteDesenvolvimento(GerenteDesenvolvimento gerenteDesenvolvimento) {
 		return gerenteDesenvolvimentoRN.update(gerenteDesenvolvimento);
 	}
@@ -243,21 +235,20 @@ public class Fachada {
 	public void removeGerenteDesenvolvimento(GerenteDesenvolvimento gerenteDesenvolvimento) {
 		gerenteDesenvolvimentoRN.remove(gerenteDesenvolvimento);
 	}
-		
+
 	public GerenteDesenvolvimento searchByKeyGerenteDesenvolvimento(Integer chave) {
 		return gerenteDesenvolvimentoRN.searchByKey(chave);
 	}
-	
 
-	//Ações Gerente Produção
+	// Ações Gerente Produção
 	public List<GerenteProducao> getAllGerenteProducao() {
-	  return gerenteProducaoRN.getAll();
-	}	
-		
+		return gerenteProducaoRN.getAll();
+	}
+
 	public void insertGerenteProducao(GerenteProducao gerenteProducao) {
 		gerenteProducaoRN.insert(gerenteProducao);
 	}
-		
+
 	public GerenteProducao updateGerenteProducao(GerenteProducao gerenteProducao) {
 		return gerenteProducaoRN.update(gerenteProducao);
 	}
@@ -265,21 +256,20 @@ public class Fachada {
 	public void removeGerenteProducao(GerenteProducao gerenteProducao) {
 		gerenteProducaoRN.remove(gerenteProducao);
 	}
-		
+
 	public GerenteProducao searchByKeyGerenteProducao(Integer chave) {
 		return gerenteProducaoRN.searchByKey(chave);
 	}
-	
-	
-	//Ações Gerente Vendas
+
+	// Ações Gerente Vendas
 	public List<GerenteVenda> getAllGerenteVenda() {
-	  return gerenteVendaRN.getAll();
-	}	
-		
+		return gerenteVendaRN.getAll();
+	}
+
 	public void insertGerenteVenda(GerenteVenda gerenteVenda) {
 		gerenteVendaRN.insert(gerenteVenda);
 	}
-		
+
 	public GerenteVenda updateGerenteVenda(GerenteVenda gerenteVenda) {
 		return gerenteVendaRN.update(gerenteVenda);
 	}
@@ -287,17 +277,16 @@ public class Fachada {
 	public void removeGerenteVenda(GerenteVenda gerenteVenda) {
 		gerenteVendaRN.remove(gerenteVenda);
 	}
-		
+
 	public GerenteVenda searchByKeyGerenteVenda(Integer chave) {
 		return gerenteVendaRN.searchByKey(chave);
 	}
-	
-	
-	//Ações Matéria Prima
+
+	// Ações Matéria Prima
 	public List<MateriaPrima> getAllMateriaPrima() {
 		return materiaPrimaRN.getAll();
 	}
-	
+
 	public MateriaPrima searchByKeyMateriaPrima(Integer chave) {
 		return materiaPrimaRN.searchByKey(chave);
 	}
@@ -305,7 +294,7 @@ public class Fachada {
 	public void insertMateriaPrima(MateriaPrima materiaPrima) {
 		materiaPrimaRN.insert(materiaPrima);
 	}
-	
+
 	public MateriaPrima updateMateriaPrima(MateriaPrima materiaPrima) {
 		return materiaPrimaRN.update(materiaPrima);
 	}
@@ -313,9 +302,8 @@ public class Fachada {
 	public void removeMateriaPrima(MateriaPrima materiaPrima) {
 		materiaPrimaRN.remove(materiaPrima);
 	}
-	
-	
-	//Ações Operador
+
+	// Ações Operador
 	public List<Operador> getAllOperador() {
 		return operadorRN.getAll();
 	}
@@ -335,17 +323,16 @@ public class Fachada {
 	public void removeOperador(Operador operador) {
 		operadorRN.remove(operador);
 	}
-	
-	
-	//Ações Ordem Produção
+
+	// Ações Ordem Produção
 	public List<OrdemProducao> getAllOrdemProducao() {
-	  return ordemProducaoRN.getAll();
-	}	
-		
+		return ordemProducaoRN.getAll();
+	}
+
 	public void insertOrdemProducao(OrdemProducao ordemProducao) {
 		ordemProducaoRN.insert(ordemProducao);
 	}
-		
+
 	public OrdemProducao updateOrdemProducao(OrdemProducao ordemProducao) {
 		return ordemProducaoRN.update(ordemProducao);
 	}
@@ -353,13 +340,12 @@ public class Fachada {
 	public void removeOrdemProducao(OrdemProducao ordemProducao) {
 		ordemProducaoRN.remove(ordemProducao);
 	}
-		
+
 	public OrdemProducao searchByKeyOrdemProducao(Integer chave) {
 		return ordemProducaoRN.searchByKey(chave);
 	}
-	
-	
-	//Ações Pedido Produto
+
+	// Ações Pedido Produto
 	public List<PedidoProduto> getAllPedidoProduto() {
 		return pedidoProdutoRN.getAll();
 	}
@@ -379,9 +365,8 @@ public class Fachada {
 	public void removePedidoProduto(PedidoProduto pedidoProduto) {
 		pedidoProdutoRN.remove(pedidoProduto);
 	}
-	
-	
-	//Ações Pedido
+
+	// Ações Pedido
 	public List<Pedido> getAllPedido() {
 		return pedidoRN.getAll();
 	}
@@ -401,9 +386,8 @@ public class Fachada {
 	public void removePedido(Pedido pedido) {
 		pedidoRN.remove(pedido);
 	}
-	
-	
-	//Ações Pessoa
+
+	// Ações Pessoa
 	public List<Pessoa> getAllPessoa() {
 		return pessoaRN.getAll();
 	}
@@ -423,9 +407,8 @@ public class Fachada {
 	public void removePessoa(Pessoa pessoa) {
 		pessoaRN.remove(pessoa);
 	}
-	
-	
-	//Ações Produto
+
+	// Ações Produto
 	public List<Produto> getAllProduto() {
 		return produtoRN.getAll();
 	}
@@ -445,9 +428,8 @@ public class Fachada {
 	public void removeProduto(Produto produto) {
 		produtoRN.remove(produto);
 	}
-	
 
-	//Ações Químico
+	// Ações Químico
 	public List<Quimico> getAllQuimico() {
 		return quimicoRN.getAll();
 	}
