@@ -25,8 +25,9 @@
 			<p:inputText value="#{materiaPrimaBean.materiaPrima.lote}"
 				required="true" />
 
-			<h:outputText value="Validade: *" />
-			<p:calendar id="mask" value="#{materiaPrimaBean.validade}"
+			<h:outputText value="Validade: " />
+			<p:calendar id="mask"
+				value="#{materiaPrimaBean.materiaPrima.validade}"
 				pattern="dd-MM-yyyy" mask="true" />
 
 			<h:outputText value="Estoque Atual: *" />
@@ -34,11 +35,14 @@
 				required="true" />
 
 			<h:outputText value="Fornecedor" />
-			<p:selectOneMenu value="#{materiaPrimaBean.fornecedor.id}"
- 				style="width:250px">
-				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
+			<p:selectOneMenu
+				value="#{materiaPrimaBean.materiaPrima.fornecedor.id}"
+				style="width:250px">
+				<f:selectItem itemValue="null" itemLabel="Selecionar"
+					noSelectionOption="true" />
 				<f:selectItems value="#{materiaPrimaBean.fornecedores}"
-					var="fornecedor" itemValue="#{fornecedor.id}" itemLabel="#{fornecedor.razaoSocial}"/>
+					var="fornecedor" itemValue="#{fornecedor.id}"
+					itemLabel="#{fornecedor.razaoSocial}" />
 			</p:selectOneMenu>
 		</h:panelGrid>
 		<p:commandButton value="Salvar"

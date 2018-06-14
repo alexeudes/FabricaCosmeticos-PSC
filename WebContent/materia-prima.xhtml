@@ -13,6 +13,8 @@
 	<h:form>
 		<h3>Lista de Matéria Prima</h3>
 
+		<p:button outcome="/index" title="Voltar" icon="ui-icon-home" />
+
 		<p:button outcome="/cadastrar-materia-prima" title="cadastrar"
 			icon="ui-icon-disk" />
 
@@ -39,7 +41,7 @@
 					<h:outputText
 						value="#{materiaPrima.fornecedor.id} - #{materiaPrima.fornecedor.razaoSocial}" />
 				</h:panelGrid>
-				<p:commandButton value="Deletar" 
+				<p:commandButton value="Excluir"
 					actionListener="#{materiaPrimaBean.delete(materiaPrima)}"
 					process="@this" icon="ui-icon-close" />
 			</p:tab>
