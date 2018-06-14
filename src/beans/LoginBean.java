@@ -7,6 +7,7 @@ import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -17,19 +18,23 @@ import negocio.Fachada;
 
 
 
-@Named
+@Named("loginBean")
+@ManagedBean
 @SessionScoped
 public class LoginBean implements Serializable{
     
-	private static final long serialVersionUID = 1L;//serializable pede essa variavel
-	
 	private String senha;
 	private String login;
 	private Collection<Pessoa> pessoas;
 	private Pessoa pessoa;
 	private Fachada fachada = Fachada.getInstancia();
 	
-	//alterar metodo caso necessario
+	@PostConstruct
+	public void init() {
+		this.pessoas = new ArrayList<Pessoa>();
+		this.pessoas = fachada.getAllPessoa();
+	}
+	
 	public String logar() {
 		for(Pessoa pessoa : pessoas) {
 			if(pessoa.getLogin().equals(login) && pessoa.getSenha().equals(senha)) {
@@ -78,9 +83,4 @@ public class LoginBean implements Serializable{
 		this.pessoa = pessoa;
 	}
 
-	@PostConstruct
-	public void init() {
-		this.pessoas = new ArrayList<Pessoa>();
-		this.pessoas = fachada.getAllPessoa();
-	}
 }
