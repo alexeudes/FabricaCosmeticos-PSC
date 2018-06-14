@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Cadastro de Cliente</title>
+</h:head>
+<body>
+	<h:form>
+		<p:growl id="growl" sticky="true" showDetail="true" />
+		<p:messages />
+		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="5">
+			<h:outputText value="Razão Social: *" />
+			<p:inputText value="#{clienteBean.cliente.razaoSocial}"
+				required="true" label="Firstname" />
+
+			<h:outputText value="CNPJ: *" />
+			<p:inputText value="#{clienteBean.cliente.cnpj}"
+				required="true" />
+
+			<h:outputText value="Telefone: *" />
+			<p:inputText value="#{clienteBean.cliente.telefone}"
+				required="true" />
+
+			<h:outputText value="E-mail: *" />
+			<p:inputText value="#{clienteBean.cliente.email}"
+				required="true" />
+
+			<h:outputText value="CEP: *" />
+			<p:inputText value="#{clienteBean.endereco.cep}"
+				required="true" />
+			
+			<h:outputText value="Estado: *" />
+			<p:inputText value="#{clienteBean.endereco.estado}"
+				required="true" />
+			
+			<h:outputText value="Cidade: *" />
+			<p:inputText value="#{clienteBean.endereco.cidade}"
+				required="true" />
+			
+			<h:outputText value="Bairro: *" />
+			<p:inputText value="#{clienteBean.endereco.bairro}"
+				required="true" />
+				
+			<h:outputText value="Logradouro: *" />
+			<p:inputText value="#{clienteBean.endereco.logradouro}"
+				required="true" />
+			
+			<h:outputText value="Número: *" />
+			<p:inputText value="#{clienteBean.endereco.numero}"
+				required="true" />
+		</h:panelGrid>
+		<p:commandButton value="Salvar"
+			actionListener="#{clienteBean.insert}" update="growl" />
+		<p:button outcome="/materia-prima" value="Voltar" />
+	</h:form>
+</body>
+</html>

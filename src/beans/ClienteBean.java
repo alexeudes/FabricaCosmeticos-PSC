@@ -3,10 +3,13 @@ package beans;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
+import basicas.Cliente;
 import basicas.Endereco;
 import basicas.Pedido;
+import negocio.Fachada;
 
 @ManagedBean
 public class ClienteBean {
@@ -17,12 +20,18 @@ public class ClienteBean {
 	private String razaoSocial;
 	private String telefone;
 	private String email;
-	private Collection<Pedido> pedido;
+	private Collection<Pedido> pedidos;
 	private Endereco endereco;
+	private Cliente cliente;
+	private Collection<Cliente> clientes;
+	
+	private Fachada fachada = Fachada.getInstancia();
 	
 	//Construtores
 	public ClienteBean(){
-		this.pedido = new ArrayList<Pedido>();
+		this.pedidos = new ArrayList<Pedido>();
+		this.cliente = new Cliente();
+		this.endereco = new Endereco();
 	}
 	
 	//Getters e Setters
@@ -57,15 +66,49 @@ public class ClienteBean {
 		this.email = email;
 	}
 	public Collection<Pedido> getPedido() {
-		return pedido;
+		return pedidos;
 	}
 	public void setPedido(Collection<Pedido> pedido) {
-		this.pedido = pedido;
+		this.pedidos = pedido;
 	}
 	public Endereco getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+	public Collection<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(Collection<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
+	public Collection<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(Collection<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	@PostConstruct
+	public void init() {
+		this.setClientes(new ArrayList<Cliente>());
+		clientes = fachada.getAllCliente();
+		
+	}
+	
+	public void insert() {
+		this.fachada.insertCliente(cliente);
 	}
 }
