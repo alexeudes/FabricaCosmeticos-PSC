@@ -56,19 +56,19 @@ public class Pedido {
 	private Cliente cliente;
 	
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "idAtendente", nullable = false)
+	@JoinColumn (name = "idAtendente", nullable = true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(CascadeType.ALL)
 	private Atendente atendente;
 	
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "idGerVenda", nullable = false)
+	@JoinColumn (name = "idGerVenda", nullable = true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(CascadeType.ALL)
 	private GerenteVenda gerenteVenda;
 	
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "idGerProducao", nullable = false)
+	@JoinColumn (name = "idGerProducao", nullable = true)
 	@Fetch(FetchMode.JOIN)
 	@Cascade(CascadeType.ALL)
 	private GerenteProducao gerenteProducao;

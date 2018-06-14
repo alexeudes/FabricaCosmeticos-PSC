@@ -2,16 +2,23 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Collection;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 import basicas.Atendente;
 import basicas.Cliente;
+import basicas.Fornecedor;
 import basicas.GerenteProducao;
 import basicas.GerenteVenda;
+import basicas.MateriaPrima;
 import basicas.OrdemProducao;
+import basicas.Pedido;
 import basicas.PedidoProduto;
+import basicas.Produto;
+import negocio.Fachada;
 
 @ManagedBean
 public class PedidoBean {
@@ -22,12 +29,20 @@ public class PedidoBean {
 	private Date prazoEntrega;
 	private String observacao;
 	private String status;
-	private Cliente cliente;
+
 	private Atendente atendente;
 	private GerenteVenda gerenteVenda;
 	private GerenteProducao gerenteProducao;
-	private Collection<PedidoProduto> pedidoProduto;
 	private OrdemProducao ordemProducao;
+	
+	private Pedido pedido;
+	private List<Pedido> pedidos;
+	private Cliente cliente;
+	private Collection<Cliente> clientes;
+	private Collection<PedidoProduto> pedidoProduto;
+	private Collection<Produto> produtos;
+	
+	private Fachada fachada = Fachada.getInstancia();
 	
 	//Construtores
 	public PedidoBean() {
@@ -106,5 +121,54 @@ public class PedidoBean {
 	public void setOrdemProducao(OrdemProducao ordemProducao) {
 		this.ordemProducao = ordemProducao;
 	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	public Collection<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(Collection<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+	public Collection<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(Collection<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
+		//Método que carrega uma lista de cliente e produtos ao inicializar a tela
+		@PostConstruct
+		public void init() {
+			this.setClientes(new ArrayList<Cliente>());
+			this.setProdutos(new ArrayList<Produto>());
+			this.clientes = fachada.getAllCliente();
+			this.produtos = fachada.getAllProduto();
+		}
+		
+		//Método para inserir o pedido
+		public void insert() {
+			this.fachada.insertPedido(this.pedido);
+		}
+		
+		public void delete(MateriaPrima mp) { 
+			this.fachada.removeMateriaPrima(mp);
+		}
 	
 }
