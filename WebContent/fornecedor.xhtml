@@ -13,6 +13,8 @@
 	<h:form>
 		<h3>Lista de Fornecedores</h3>
 
+		<p:button outcome="/index" title="Voltar" icon="ui-icon-home" />
+
 		<p:button outcome="/cadastrar-fornecedor" title="cadastrar"
 			icon="ui-icon-disk" />
 
@@ -44,9 +46,11 @@
 					<h:outputText value="CEP:" style="font-weight: bold" />
 					<h:outputText value="#{f.cep}" />
 				</h:panelGrid>
+				<p:commandButton value="Excluir"
+					actionListener="#{fornecedorBean.delete(f)}" process="@this"
+					icon="ui-icon-close" />
 			</p:tab>
 		</p:accordionPanel>
-		<!-- <p:graphicImage name="demo/images/car/#{car.brand}-big.gif" />-->
 	</h:form>
 </h:body>
 </html>
