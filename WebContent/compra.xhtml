@@ -13,12 +13,12 @@
 	<h:form>
 		<h3>Lista de compra</h3>
 
-		<!--<p:button outcome="/cadastrar-compra" title="cadastrar"
-			icon="ui-icon-disk" />-->
+		<p:button outcome="/cadastrar-compra" value="cadastrar"
+			icon="ui-icon-disk" />
 
 		<p:accordionPanel value="#{compraBean.compras}" var="c">
-			<p:tab title="#{c.id} - #{c.materiaPrima.nome}">
-				<h:panelGrid columns="2" cellpadding="5">
+			<p:tab title="#{c.id} - #{c.compra.materiaPrima.descricao}">
+				<h:panelGrid columns="2" cellpadding="2">
 
 					<h:outputText value="Quantidade:" style="font-weight: bold" />
 					<h:outputText value="#{c.quantidade}" />
@@ -26,9 +26,11 @@
 					<h:outputText value="Valor:" style="font-weight: bold" />
 					<h:outputText value="#{c.valor}" />
 					
-				</h:panelGrid>
+				</h:panelGrid>					
 			</p:tab>
 		</p:accordionPanel>
+		<p:button outcome="/index" value="Voltar" 
+		icon="ui-icon-disk"/>
 	</h:form>
 </h:body>
 </html>

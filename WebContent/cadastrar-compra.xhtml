@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastrar Compra</title>
+</h:head>
+<body>
+	<h:form>
+		<p:growl id="growl" sticky="true" showDetail="true" />
+		<p:messages />
+		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="3">
+		
+			<h:outputText value="Fornecedor" />
+			<p:selectOneMenu value="#{materiaPrimaBean.fornecedor.id}"
+ 				style="width:250px">
+				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
+				<f:selectItems value="#{materiaPrimaBean.fornecedores}"
+					var="fornecedor" itemValue="#{fornecedor.id}" itemLabel="#{fornecedor.razaoSocial}"/>
+			</p:selectOneMenu>
+		
+			<h:outputText value="Matéria Prima" />
+			<p:selectOneMenu value="#{materiaPrimaBean.materiaPrima.nome}"
+ 				style="width:250px">
+				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
+				<f:selectItems value="#{materiaPrimaBean.materiaPrima}"
+					var="fornecedor" itemValue="#{materiaPrima.id}" itemLabel="#{materiaPrima.nome}"/>
+			</p:selectOneMenu>
+
+			<h:outputText value="Quantidade: *" />
+			<p:inputText value="#{compraBean.compra.quantidade}"
+				required="true" />
+
+			<h:outputText value="Valor: *" />
+			<p:inputText value="#{compraBean.compra.valor}"
+				required="true" />
+
+			
+		</h:panelGrid>
+		
+		<p:commandButton value="Salvar"
+			actionListener="#{compraBean.insert}" update="growl" />
+		<p:button outcome="/compra" value="Voltar" />
+		
+		
+	</h:form>
+</body>
+</html>

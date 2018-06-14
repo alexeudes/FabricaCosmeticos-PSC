@@ -1,10 +1,12 @@
 package beans;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import basicas.Compra;
+import basicas.Fornecedor;
 import basicas.GerenteCompras;
 import basicas.MateriaPrima;
 import negocio.Fachada;
@@ -21,13 +23,18 @@ public class CompraBean {
 	private List<Compra>compras;
 	private Compra compra;
 	
-	private Fachada fachada = Fachada.getInstancia();
+	private Collection<Fornecedor> fornecedores;
+	
 	
 	//Construtores
 	public CompraBean(){
 		this.compras = new ArrayList<Compra>();
 		this.gerenteCompras = new GerenteCompras();
 	}
+	
+	private List<MateriaPrima> materiasPrimas;
+	
+	private Fachada fachada = Fachada.getInstancia();
 	
 	//Getters e Setters
 	public Integer getId() {
@@ -75,6 +82,24 @@ public class CompraBean {
 	public void setCompra(Compra compra) {
 		this.compra = compra;
 	}
+	
+	public Collection<Fornecedor> getFornecedores() {
+		return fornecedores;
+	}
+
+	public void setFornecedores(Collection<Fornecedor> fornecedores) {
+		this.fornecedores = fornecedores;
+	}
+
+	public List<MateriaPrima> getMateriasPrimas() {
+		return materiasPrimas;
+	}
+
+	public void setMateriasPrimas(List<MateriaPrima> materiasPrimas) {
+		this.materiasPrimas = materiasPrimas;
+	}
+
+
 	
 	@PostConstruct
 	public void init() {

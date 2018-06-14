@@ -32,14 +32,11 @@ public class Compra {
 	
 	//Relacionamentos
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="idMateriaPrima",insertable=true,updatable=true)
-	@Fetch(FetchMode.JOIN)
+	@JoinColumn(name="idMateriaPrima")
 	private MateriaPrima materiaPrima;
 	
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "idGerCompra", nullable = false)
-	@Fetch(FetchMode.JOIN)
-	@Cascade(CascadeType.ALL)
+	@JoinColumn (name = "idGerCompra")
 	private GerenteCompras gerenteCompras;
 	
 	//Getters e Setters
