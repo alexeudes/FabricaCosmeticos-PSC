@@ -29,16 +29,16 @@
 			<p:inputText value="#{pedidoBean.pedido.status}"
 				required="true" />
 
-			<h:outputText value="Fornecedor" />
-			<p:selectOneMenu value="#{materiaPrimaBean.fornecedor.id}"
+			<h:outputText value="Cliente" />
+			<p:selectOneMenu value="#{pedidoBean.cliente.id}"
  				style="width:250px">
 				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
-				<f:selectItems value="#{materiaPrimaBean.fornecedores}"
-					var="fornecedor" itemValue="#{fornecedor.id}" itemLabel="#{fornecedor.razaoSocial}"/>
+				<f:selectItems value="#{pedidoBean.clientes}"
+					var="cliente" itemValue="#{cliente.id}" itemLabel="#{cliente.razaoSocial}"/>
 			</p:selectOneMenu>
 		</h:panelGrid>
 		<p:commandButton value="Salvar"
-			actionListener="#{materiaPrimaBean.insert}" update="growl" />
+			actionListener="#{pedidoBean.insert}" update="growl" />
 		<p:button outcome="/materia-prima" value="Voltar" />
 	</h:form>
 </body>
