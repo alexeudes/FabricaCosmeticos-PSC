@@ -6,50 +6,50 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Fábrica Cosmeticos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Fábrica Cosmeticos</title>
 </h:head>
-
-<h:body>
-	<h:form>
-		<h3>Lista de Fornecedores</h3>
-
-		<p:button outcome="/cadastrar-fornecedor" title="cadastrar"
+<body>
+	<h3>Lista de Clientes</h3>
+	
+	<p:button outcome="/cadastrar-cliente" title="cadastrar"
 			icon="ui-icon-disk" />
 
-		<p:accordionPanel value="#{fornecedorBean.fornecedores}" var="f">
-			<p:tab title="#{f.id} - #{f.razaoSocial}">
+		<p:accordionPanel value="#{clienteBean.clientes}" var="c">
+			<p:tab title="#{c.id} - #{c.razaoSocial}">
 				<h:panelGrid columns="2" cellpadding="5">
 
 					<h:outputText value="CNPJ:" style="font-weight: bold" />
-					<h:outputText value="#{f.cnpj}" />
+					<h:outputText value="#{c.cnpj}" />
 
 					<h:outputText value="E-mail:" style="font-weight: bold" />
-					<h:outputText value="#{f.email}" />
+					<h:outputText value="#{c.email}" />
 
 					<h:outputText value="Telefone:" style="font-weight: bold" />
-					<h:outputText value="#{f.telefone}" />
+					<h:outputText value="#{c.telefone}" />
 
 					<h:outputText value="Logradouro:" style="font-weight: bold" />
-					<h:outputText value="#{f.logradouro}" />
+					<h:outputText value="#{c.endereco.logradouro}" />
 
 					<h:outputText value="Bairro:" style="font-weight: bold" />
-					<h:outputText value="#{f.bairro}" />
+					<h:outputText value="#{c.endereco.bairro}" />
 
 					<h:outputText value="Cidade:" style="font-weight: bold" />
-					<h:outputText value="#{f.cidade}" />
+					<h:outputText value="#{c.endereco.cidade}" />
 
 					<h:outputText value="Estado:" style="font-weight: bold" />
-					<h:outputText value="#{f.estado}" />
+					<h:outputText value="#{c.endereco.estado}" />
 
 					<h:outputText value="CEP:" style="font-weight: bold" />
-					<h:outputText value="#{f.cep}" />
+					<h:outputText value="#{c.endereco.cep}" />
+					
+					<h:outputText value="Número:" style="font-weight: bold" />
+					<h:outputText value="#{c.endereco.numero}" />
 				</h:panelGrid>
 				<p:commandButton value="Deletar" 
-			actionListener="#{fornecedorBean.delete(fornecedor)}"
-			process="@this" icon="ui-icon-close" />
+					actionListener="#{clienteBean.delete(cliente)}"
+					process="@this" icon="ui-icon-close" />
 			</p:tab>
 		</p:accordionPanel>
-		<!-- <p:graphicImage name="demo/images/car/#{car.brand}-big.gif" />-->
-	</h:form>
-</h:body>
+</body>
 </html>

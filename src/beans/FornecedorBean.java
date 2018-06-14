@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import basicas.MateriaPrima;
 import negocio.Fachada;
+import basicas.Cliente;
 import basicas.Fornecedor;
 
 @ManagedBean
@@ -124,17 +125,13 @@ public class FornecedorBean{
 	public void init() {
 		this.setFornecedores(new ArrayList<Fornecedor>());
 		fornecedores = fachada.getAllFornecedor();
-		/*
-		Fornecedor fornecedor = new Fornecedor();
-		fornecedor.setRazaoSocial("Mercadinho do Seu Zé");
-		fornecedor.setCep("123456789");
-		fornecedor.setId(1010);
-		this.getFornecedores().add(fornecedor);
-		*/
 	}
 	
 	public void insert() {
 		this.fachada.insertFornecedor(this.fornecedor);
 	}
 	
+	public void delete(Fornecedor f) { 
+		this.fachada.removeFornecedor(f);
+	}
 }
