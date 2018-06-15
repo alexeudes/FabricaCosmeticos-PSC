@@ -41,9 +41,7 @@ public class Produto {
 	
 	//Relacionamentos
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "idCategoria", nullable = false)
-	@Fetch(FetchMode.JOIN)
-	@Cascade(CascadeType.ALL)
+	@JoinColumn (name = "idCategoria")
 	private Categoria categoria;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -56,9 +54,7 @@ public class Produto {
 	private Collection <PedidoProduto> pedidoProduto;
 	
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "idGerDesenvolvimento", nullable = false)
-	@Fetch(FetchMode.JOIN)
-	@Cascade(CascadeType.ALL)
+	@JoinColumn (name = "idGerDesenvolvimento")
 	private GerenteDesenvolvimento gerenteDesenvolvimento;
 	
 	//Getters e Setters

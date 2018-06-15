@@ -2,11 +2,14 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import basicas.Categoria;
+import basicas.Fornecedor;
 import basicas.GerenteDesenvolvimento;
 import basicas.MateriaPrima;
 import basicas.PedidoProduto;
+import negocio.Fachada;
 
 public class ProdutoBean {
 
@@ -19,6 +22,9 @@ public class ProdutoBean {
 	private Collection<MateriaPrima> materiaPrima;
 	private Collection<PedidoProduto> pedidoProduto;
 	private GerenteDesenvolvimento gerenteDesenvolvimento;
+	private List<MateriaPrima> materiasPrimas;
+	
+	private Fachada fachada = Fachada.getInstancia();
 	
 	public ProdutoBean() {
 		this.materiaPrima = new ArrayList<MateriaPrima>();
@@ -74,6 +80,15 @@ public class ProdutoBean {
 	}
 	public void setGerenteDesenvolvimento(GerenteDesenvolvimento gerenteDesenvolvimento) {
 		this.gerenteDesenvolvimento = gerenteDesenvolvimento;
+	}	
+	public List<MateriaPrima> getMateriasPrimas() {
+		return materiasPrimas;
 	}
-	
+	public void setMateriasPrimas(List<MateriaPrima> materiasPrimas) {
+		this.materiasPrimas = materiasPrimas;
+	}	
+	public void init() {
+		this.materiasPrimas = new ArrayList<MateriaPrima>();
+		this.materiasPrimas = fachada.getAllMateriaPrima();
+	}
 }
