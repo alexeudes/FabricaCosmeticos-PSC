@@ -50,6 +50,10 @@ public class Cliente {
 	
 	@Embedded
 	private Endereco endereco;
+	
+	public Cliente() {
+		Endereco endereco = new Endereco();
+	}
 			
 	
 	//Getters e Setters
