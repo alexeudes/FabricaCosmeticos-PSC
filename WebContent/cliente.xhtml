@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Fábrica Cosmeticos</title>
+</h:head>
+<body>
+	<h3>Lista de Clientes</h3>
+	
+	<p:button outcome="/cadastrar-cliente" title="cadastrar"
+			icon="ui-icon-disk" />
+
+		<p:accordionPanel value="#{clienteBean.clientes}" var="c">
+			<p:tab title="#{c.id} - #{c.razaoSocial}">
+				<h:panelGrid columns="2" cellpadding="5">
+
+					<h:outputText value="CNPJ:" style="font-weight: bold" />
+					<h:outputText value="#{c.cnpj}" />
+
+					<h:outputText value="E-mail:" style="font-weight: bold" />
+					<h:outputText value="#{c.email}" />
+
+					<h:outputText value="Telefone:" style="font-weight: bold" />
+					<h:outputText value="#{c.telefone}" />
+
+					<h:outputText value="Logradouro:" style="font-weight: bold" />
+					<h:outputText value="#{c.endereco.logradouro}" />
+
+					<h:outputText value="Bairro:" style="font-weight: bold" />
+					<h:outputText value="#{c.endereco.bairro}" />
+
+					<h:outputText value="Cidade:" style="font-weight: bold" />
+					<h:outputText value="#{c.endereco.cidade}" />
+
+					<h:outputText value="Estado:" style="font-weight: bold" />
+					<h:outputText value="#{c.endereco.estado}" />
+
+					<h:outputText value="CEP:" style="font-weight: bold" />
+					<h:outputText value="#{c.endereco.cep}" />
+					
+					<h:outputText value="Número:" style="font-weight: bold" />
+					<h:outputText value="#{c.endereco.numero}" />
+				</h:panelGrid>
+				<p:commandButton value="Deletar" 
+					actionListener="#{clienteBean.delete(cliente)}"
+					process="@this" icon="ui-icon-close" />
+			</p:tab>
+		</p:accordionPanel>
+</body>
+</html>

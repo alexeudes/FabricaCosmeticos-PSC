@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 
 import basicas.Cliente;
 import basicas.Endereco;
+import basicas.MateriaPrima;
 import basicas.Pedido;
 import negocio.Fachada;
 
@@ -173,5 +174,9 @@ public class ClienteBean {
 	
 	public void insert() {
 		this.fachada.insertCliente(cliente);
+	}
+	
+	public void delete(Cliente c) { 
+		this.fachada.removeCliente(c);
 	}
 }
