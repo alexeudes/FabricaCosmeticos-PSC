@@ -49,10 +49,8 @@ public class Pedido {
 	private String status;
 	
 	//Relacionamentos
-	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name = "idCliente", nullable = false)
-	@Fetch(FetchMode.JOIN)
-	@Cascade(CascadeType.ALL)
+	@ManyToOne (fetch = FetchType.EAGER)
+	@JoinColumn (name = "idCliente")
 	private Cliente cliente;
 	
 	@ManyToOne (fetch = FetchType.LAZY)

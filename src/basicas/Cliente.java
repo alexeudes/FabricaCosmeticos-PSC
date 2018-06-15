@@ -46,7 +46,6 @@ public class Cliente {
 	
 	//Relacionamentos
 	@OneToMany(mappedBy="cliente", fetch = FetchType.LAZY)
-	@Cascade(CascadeType.ALL)
 	private Collection <Pedido> pedido;
 	
 	@Embedded

@@ -43,7 +43,7 @@
 				<f:selectItems value="#{materiaPrimaBean.fornecedores}"
 					var="fornecedor" itemValue="#{fornecedor.id}"
 					itemLabel="#{fornecedor.razaoSocial}" />
-			</p:selectOneMenu>
+			</p:selectOneMenu>									
 		</h:panelGrid>
 		<p:commandButton value="Salvar"
 			actionListener="#{materiaPrimaBean.insert}" update="growl" />

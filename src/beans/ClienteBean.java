@@ -22,6 +22,12 @@ public class ClienteBean {
 	private String email;
 	private Collection<Pedido> pedidos;
 	private Endereco endereco;
+	private String logradouro;
+	private String bairro;
+	private String cidade;
+	private String estado;
+	private String cep;
+	private String numero;
 	private Cliente cliente;
 	private Collection<Cliente> clientes;
 	
@@ -32,6 +38,7 @@ public class ClienteBean {
 		this.pedidos = new ArrayList<Pedido>();
 		this.cliente = new Cliente();
 		this.endereco = new Endereco();
+		this.cliente.setEndereco(new Endereco());
 	}
 	
 	//Getters e Setters
@@ -71,12 +78,6 @@ public class ClienteBean {
 	public void setPedido(Collection<Pedido> pedido) {
 		this.pedidos = pedido;
 	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
 	public Collection<Cliente> getClientes() {
 		return clientes;
 	}
@@ -99,8 +100,70 @@ public class ClienteBean {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}	
+	public String getLogradouro() {
+		return logradouro;
 	}
-	
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public String getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public Fachada getFachada() {
+		return fachada;
+	}
+
+	public void setFachada(Fachada fachada) {
+		this.fachada = fachada;
+	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
 	@PostConstruct
 	public void init() {
 		this.setClientes(new ArrayList<Cliente>());

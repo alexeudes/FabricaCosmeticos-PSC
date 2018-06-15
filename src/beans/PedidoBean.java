@@ -47,6 +47,7 @@ public class PedidoBean {
 	//Construtores
 	public PedidoBean() {
 		this.cliente = new Cliente();
+		this.pedido = new Pedido();
 		this.atendente = new Atendente();
 		this.gerenteVenda = new GerenteVenda();
 		this.gerenteProducao = new GerenteProducao();

@@ -4,7 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core">
-	
+
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Cadastrar Pedido</title>
@@ -15,32 +15,35 @@
 		<p:messages />
 		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="5">
 			<h:outputText value="Data do Pedido *" />
-			<p:calendar id="mask" value="#{pedidoBean.pedido.dataPedido}"
+			<p:calendar id="maskpedido" value="#{pedidoBean.pedido.dataPedido}"
 				pattern="dd-MM-yyyy" mask="true" />
-				
-			<h:outputText value="Data de Entrega *" />
-			<p:calendar id="mask" value="#{pedidoBean.pedido.prazoEntrega}"
-				pattern="dd-MM-yyyy" mask="true" />	
 
-			<h:outputText value="Estoque Atual: *" />
-			<p:inputText value="#{pedidoBean.pedido.observacao}"
-				required="true" />
-				
-			<h:outputText value="Estoque Atual: *" />
-			<p:inputText value="#{pedidoBean.pedido.status}"
-				required="true" />
+			<h:outputText value="Data de Entrega *" />
+			<p:calendar id="maskentrega"
+				value="#{pedidoBean.pedido.prazoEntrega}" pattern="dd-MM-yyyy"
+				mask="true" />
+
+			<h:outputText value="Observação :" />
+			<p:inputText value="#{pedidoBean.pedido.observacao}" required = "false" />
+
+			<h:outputText value="Status: *" />
+			<p:inputText value="#{pedidoBean.pedido.status}" required="true" />
 
 			<h:outputText value="Cliente" />
-			<p:selectOneMenu value="#{pedidoBean.cliente.id}"
- 				style="width:250px">
-				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
-				<f:selectItems value="#{pedidoBean.clientes}"
-					var="cliente" itemValue="#{cliente.id}" itemLabel="#{cliente.razaoSocial}"/>
+			<p:selectOneMenu value="#{pedidoBean.cliente.id}" 
+				style="width:250px">
+				<f:selectItem itemValue="null" itemLabel="Selecionar"
+					noSelectionOption="true" />
+				<f:selectItems value="#{pedidoBean.clientes}" var="cliente"
+					itemValue="#{cliente.id}" itemLabel="#{cliente.razaoSocial}" />
 			</p:selectOneMenu>
+
 		</h:panelGrid>
-		<p:commandButton value="Salvar"
-			actionListener="#{pedidoBean.insert}" update="growl" />
-		<p:button outcome="/materia-prima" value="Voltar" />
+
+		<p:commandButton value="Salvar" actionListener="#{pedidoBean.insert}"
+			update="growl" />
+		<p:button outcome="/pedido" value="Voltar" />
+
 	</h:form>
 </body>
 </html>
