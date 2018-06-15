@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastrar Produto</title>
+</h:head>
+<body>
+	<h:form>
+		<p:growl id="growl" sticky="true" showDetail="true" />
+		<p:messages />
+		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="5">			
+			  
+			<h:outputText value="MatériaPrima" />
+			<p:selectOneMenu value="#{produtoBean.materiaPrima.id}"
+ 				style="width:250px">
+				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
+				<f:selectItems value="#{produtoBean.materiasPrimas}"
+					var="materiaPrima" itemValue="#{materiaPrima.id}" itemLabel="#{materiaPrima.nome}"/>
+			</p:selectOneMenu>
+			
+			<h:outputText value="Descrição: *" />
+			<p:inputText value="#{produtoBean.produto.descricao}"
+				required="true" />
+
+			<h:outputText value="Unidade de Fornecimento: *" />
+			<p:inputText value="#{produtoBean.produto.unidadeFornecimento}"
+				required="true" />
+
+			<h:outputText value="Status: *" />
+			<p:inputText value="#{produtoBean.produto.status}"
+				required="true" />
+
+						
+		</h:panelGrid>
+		<p:commandButton value="Salvar"
+			actionListener="#{materiaPrimaBean.insert}" update="growl" />
+		<p:button outcome="/materia-prima" value="Voltar" />
+	</h:form>
+</body>
+</html>

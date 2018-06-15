@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Fábrica Cosmeticos</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h3>Lista de Produtos</h3>
+
+		<p:button outcome="/cadastrar-produto" value="cadastrar"
+			icon="ui-icon-disk" />
+
+		<p:accordionPanel value="#{produtoBean.compras}" var="p">
+			<p:tab title="#{p.id} - #{p.produto.materiaPrima.nome}">
+				<h:panelGrid columns="2" cellpadding="2">
+
+					<h:outputText value="Descrição:" style="font-weight: bold" />
+					<h:outputText value="#{p.descricao}" />
+
+					<h:outputText value="Unidade de fornecimento:" style="font-weight: bold" />
+					<h:outputText value="#{p.unidadeFornecimento}" />
+					
+					<h:outputText value="Status:" style="font-weight: bold" />
+					<h:outputText value="#{p.status}" />
+					
+				</h:panelGrid>					
+			</p:tab>
+		</p:accordionPanel>
+		<p:button outcome="/index" value="Voltar" 
+		icon="ui-icon-disk"/>
+	</h:form>
+</h:body>
+</html>
