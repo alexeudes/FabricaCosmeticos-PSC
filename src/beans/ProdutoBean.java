@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import basicas.Categoria;
-import basicas.Fornecedor;
 import basicas.GerenteDesenvolvimento;
 import basicas.MateriaPrima;
 import basicas.PedidoProduto;
 import negocio.Fachada;
 
+@ManagedBean
 public class ProdutoBean {
 
 	//Atributos
@@ -19,6 +21,7 @@ public class ProdutoBean {
 	private String status;
 	private String descricao;
 	private Categoria categoria;
+	private MateriaPrima materiaprima;
 	private Collection<MateriaPrima> materiaPrima;
 	private Collection<PedidoProduto> pedidoProduto;
 	private GerenteDesenvolvimento gerenteDesenvolvimento;
@@ -87,6 +90,14 @@ public class ProdutoBean {
 	public void setMateriasPrimas(List<MateriaPrima> materiasPrimas) {
 		this.materiasPrimas = materiasPrimas;
 	}	
+	public MateriaPrima getMateriaprima() {
+		return materiaprima;
+	}
+	public void setMateriaprima(MateriaPrima materiaprima) {
+		this.materiaprima = materiaprima;
+	}
+	
+	@PostConstruct
 	public void init() {
 		this.materiasPrimas = new ArrayList<MateriaPrima>();
 		this.materiasPrimas = fachada.getAllMateriaPrima();

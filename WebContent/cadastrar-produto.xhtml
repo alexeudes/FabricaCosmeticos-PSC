@@ -12,10 +12,10 @@
 	<h:form>
 		<p:growl id="growl" sticky="true" showDetail="true" />
 		<p:messages />
-		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="5">			
+		<h:panelGrid columns="2" columnClasses="label, value" cellpadding="4">			
 			  
 			<h:outputText value="MatériaPrima" />
-			<p:selectOneMenu value="#{produtoBean.materiaPrima.id}"
+			<p:selectOneMenu value="#{produtoBean.materiaPrima}"
  				style="width:250px">
 				<f:selectItem itemValue="null" itemLabel="Selecionar" noSelectionOption="true" />
 				<f:selectItems value="#{produtoBean.materiasPrimas}"
